@@ -1,6 +1,7 @@
 //Règles de communication : 
-//Après toute modification, poster un message sur le groupe Skype svp.
-//Si skype ne fonctionne pas, j'enverrais des mails sur l'adresse de l'école.
+//Après toute modification, poster un message sur le groupe Slack svp.
+//Toute question peut également être posé sur le site/programme.
+//Si slack ne fonctionne pas, j'enverrais des mails sur l'adresse de l'école.
 //Gael
 
 //Pour le fichier .ep, téléchargez pencil et ouvrez le avec. 
