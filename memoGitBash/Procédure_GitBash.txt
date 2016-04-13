@@ -8,3 +8,5 @@ git add . "ajoute tout"
 git add "ajoute un fichier spécifique"
 git commit -a -m "pour le commit, le -a concerne tout ce qui est modifié/ajouté sur le pc,
 le -m concerne le commentaire du git
+!!!Avant de faire un Git push,
+il faut faire un Git pull pour avoir la les push précédents à jours.
