@@ -1,0 +1,18 @@
+lancer GitBash
+cd pour ouvrir un dossier
+ls pour affiche a liste
+https://openclassrooms.com/courses/gerez-vos-codes-source-avec-git
+git clone https://github.com/metaxiii/PPE2.git
+git status "affiche le statut des git"
+git add . "ajoute tout"
+git add "ajoute un fichier spécifique"
+git commit -a -m "pour le commit, le -a concerne tout ce qui est modifié/ajouté sur le pc,
+le -m concerne le commentaire du git
+!!!Avant de faire un Git push,
+il faut faire un Git pull pour avoir la les push précédents à jours.
+
+git config --global user.email "brice.t@hotmail.fr"
+git config --global user.name "Kumbra"
+
+
+git help pour plus de commande
