@@ -1,23 +1,28 @@
-header {
-	background-color: blue ; 
-	width : 86% ; 
-	height : 150px; 
+body {
+	background-color : #ffae19 ; 
+}
+.header {
+	background-color : blue ; 
+	height : 100px ; 
+	width : 90% ; 
+	margin : auto ; 
+}
+.navbar {
+	background-color : green ; 
+	height: 50px; 
+	width : 90% ;
+	margin : auto ; 
+}
+.section {
+	background-color : red ; 
+	width : 90% ; 
+	height : 550px ;
+	margin : auto ; 
+}
+
+.footer {
+	background-color : pink ; 
+	width : 90% ; 
 	margin : auto ;
-}
-nav {
-	background-color: red ; 
-	width : 25% ;
-	margin-left : 7% ;
-	height : 550px ; 
-	display : flex ; 
-}
-section {
-	background-color: green  ;
-	width : 61% ; 
-	margin-right : 7% ;
-	height : 550px; 
-	display : flex; 
-}
-footer {
-	background-color: yellow ; 
+	height : 50px;
 }
