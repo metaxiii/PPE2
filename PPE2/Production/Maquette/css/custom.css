@@ -26,3 +26,31 @@ body {
 	margin : auto ;
 	height : 50px;
 }
+.list-item, .list-item ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+.list-item {
+    text-align: center;
+}
+.list-item li {
+    display: inline-block;
+}
+.list-item ul li {
+    display: inherit;
+}
+.list-item a {
+    text-decoration: none;
+    display: block;
+	color:#000;
+}
+.list-item ul {
+    position: absolute;
+    left: -999em;
+    text-align: left;
+    z-index: 1000;
+}
+.list-item li:hover ul {
+    left: auto;
+}
