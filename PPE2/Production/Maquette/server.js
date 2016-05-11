@@ -15,8 +15,10 @@ app.all('*', function(req, res){
             '<base href="/" />' +
         '</head>' +
         '<body>' +
-            '<div ui-view class="container"></div>' +
-            '<script src="bundle.js"></script>' +
+            '<md-content>' +
+                '<div ui-view class="container"></div>' +
+                '<script src="bundle.js"></script>' +
+            '</md-content>' +
         '</body>' +
     '</html>')
 });
