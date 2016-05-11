@@ -1,10 +1,13 @@
 import angular from 'angular';
 import uiRouter from 'angular-ui-router';
+import ngMdIcons from 'angular-material-icons';
+import ngMaterial from 'angular-material';
+
+
 import indexComp from './components/ui/index/index';
 import infoComp from './components/ui/info/info';
 import bookingComp from './components/ui/booking/booking';
-import ngMdIcons from 'angular-material-icons';
-import ngMaterial from 'angular-material';
+import registerComp from './components/ui/register/register';
 
 const app = angular.module('app', [uiRouter, ngMdIcons, ngMaterial]);
 
@@ -12,6 +15,7 @@ const app = angular.module('app', [uiRouter, ngMdIcons, ngMaterial]);
 app.component('index', indexComp);
 app.component('info', infoComp);
 app.component('booking', bookingComp)
+app.component('register', registerComp)
 
 app.config(($stateProvider, $urlRouterProvider, $locationProvider) => {
     $stateProvider
@@ -27,6 +31,10 @@ app.config(($stateProvider, $urlRouterProvider, $locationProvider) => {
         .state('index.booking', {
         	url: '^/booking',
         	template: '<booking></booking>'
+        })
+        .state('index.register', {
+            url: '^/register',
+            template: '<register></register>'
         })
 
     $urlRouterProvider.otherwise('/info');
