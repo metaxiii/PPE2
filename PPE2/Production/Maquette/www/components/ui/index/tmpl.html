@@ -2,7 +2,29 @@
 	<md-toolbar class="md-primary md-toolbar-tools" layout-align="space-around center" layout="row">
 		<div>M2L</div>
 		<div flex layout="row" layout-align="center center">Maison des ligues de lorraine</div>
-		<div><ng-md-icon icon="person" style="fill: white"></ng-md-icon></div>
+		
+<div>	
+	<md-menu>
+ <!-- Trigger element is a md-button with an icon -->
+ <md-button ng-click="$mdOpenMenu($event)" class="md-icon-button" aria-label="Open sample menu">
+   <ng-md-icon icon="menu" style="fill: white"></ng-md-icon>
+ </md-button>
+ <md-menu-content layout-padding>
+   <md-input-container>
+        <label>Email</label>
+        <input type=email ng-model="user.Email">
+      </md-input-container>
+	<md-input-container>
+        <label>Mot de passe</label>
+        <input ng-model="user.motdepasse">
+      </md-input-container>
+	  <md-button class="md-primary md-hue-1">Connection</md-button>
+	   <a ui-sref="index.register">Pas encore inscrit?</a>
+	</md-menu-content> 
+    
+
+</div>		
+		
 	</md-toolbar>
 	<div ui-view></div>
 </div>
