@@ -4,7 +4,6 @@ export default ['AuthService', '$state', function(AuthService, $state){
 	const self = this;
 
 	const connect = () => {
-		console.log('connecting')
 		if(!self.isConnected){
 			AuthService.connect()
 				.then(function(){
