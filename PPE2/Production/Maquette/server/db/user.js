@@ -33,14 +33,15 @@ var findUserForLogin = function(credentials, callback){
 };
 
 var registerUser = function(user){
-  if(user.surname && user.name && user.mail && user.password && user.adress && user.adress.street && user.adress.zip && user.adress.town && user.adress.country){
+  // Add callback, and unique verifications
+  if(user && user.surname && user.name && user.mail && user.password && user.adress && user.adress.street && user.adress.zip && user.adress.town && user.adress.country){
     var newUser = new User(user);
 
     newUser.save(function(err){
       if(err){
         console.log(err);
       } else {
-        console.log('User ' + mail + ' added to database.')
+        console.log('User ' + user.mail + ' added to database.')
       }
     })
   } else {
@@ -49,5 +50,5 @@ var registerUser = function(user){
 }
 
 module.exports.User = User;
-
 module.exports.findUserForLogin = findUserForLogin;
+module.exports.registerUser = registerUser;
