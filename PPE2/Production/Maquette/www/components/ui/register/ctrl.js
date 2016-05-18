@@ -3,7 +3,8 @@ export default ['ConnectivityService', function(ConnectivityService){
 
   const register = function(){
     // TODO: add verifications and callback
-    ConnectivityService.registerUser();
+    self.user.adress.street = `${self.streetNumber} ${self.streetName}`;
+    ConnectivityService.registerUser(self.user);
   }
   
   const countries = ['France', 'Great Britain', 'Deutschland', 'Luxembourg' , 'Italy', 'Espana', 'Portugal'];
