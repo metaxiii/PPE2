@@ -4,6 +4,7 @@ import ngMdIcons from 'angular-material-icons';
 import ngMaterial from 'angular-material';
 
 import AuthService from './services/AuthService';
+import ConnectivityService from './services/ConnectivityService';
 
 import indexComp from './components/ui/index/index';
 import infoComp from './components/ui/info/info';
@@ -20,6 +21,7 @@ app.component('register', registerComp);
 
 // Services
 app.service('AuthService', AuthService);
+app.service('ConnectivityService', ConnectivityService);
 
 app.config(($stateProvider, $urlRouterProvider, $locationProvider) => {
     $stateProvider
