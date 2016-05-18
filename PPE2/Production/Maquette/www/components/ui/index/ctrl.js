@@ -16,6 +16,7 @@ export default ['AuthService', '$state', function(AuthService, $state){
 
 	const disconnect = () => {
 		AuthService.disconnect();
+		self.isConnected = false;
 		$state.go('index.info');
 	};
 
