@@ -6,7 +6,6 @@ var User = mongoose.model('User', new mongoose.Schema({
   registerDate: { type: Date, default: Date.now },
   loginDate: { type: Date, default: Date.now },
   nickname: { type: String, required: true },
-  surname: { type: String, required: true },
   name: { type: String, required: true },
   mail: { type: String, required: true, unique: true },
   password: { type: String, required: true },
@@ -34,7 +33,7 @@ var findUserForLogin = function(credentials, callback){
 
 var registerUser = function(user){
   // Add callback, and unique verifications
-  if(user && user.surname && user.name && user.mail && user.password && user.adress && user.adress.street && user.adress.zip && user.adress.town && user.adress.country){
+  if(user && user.name && user.mail && user.password && user.adress && user.adress.street && user.adress.zip && user.adress.town && user.adress.country){
     var newUser = new User(user);
 
     newUser.save(function(err){
