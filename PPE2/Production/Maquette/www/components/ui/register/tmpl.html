@@ -1,51 +1,54 @@
 <div class="text-body">
-	
-	<md-input-container>
-			<label>Nom d'utilisateur : </label>
+	<form>	
+		<md-input-container>
+				<label>Nom d'utilisateur : </label>
 			<input type="text" ng-model="$ctrl.user.nickname">
-	</md-input-container>
-	</br>
-	<md-input-container>
-			<label>Adresse email :  </label>
+		</md-input-container>
+		</br>
+		<md-input-container>
+				<label>Adresse email :  </label>
 			<input type="email" ng-model="$ctrl.user.mail"> 
-	</md-input-container>
-	</br>
-	<md-input-container>
-			<label>Confirmez l'adresse email :  </label>
+		</md-input-container>
+		</br>
+		<md-input-container>
+				<label>Confirmez l'adresse email :  </label>
 			<input type="email" ng-model="$ctrl.mailVerif"> 
-	</md-input-container>
-	</br>
-	<md-input-container>
-			<label> Mot de passe</label>
+		</md-input-container>
+		</br>
+		<md-input-container>
+				<label> Mot de passe</label>
 			<input type="password" ng-model="$ctrl.user.password">
-	</md-input-container>
-	<span> | </span>
-	<md-input-container>
-			<label>Confirmer le mot de passe</label>
+		</md-input-container>
+		<span> | </span>
+		<md-input-container>
+				<label>Confirmer le mot de passe</label>
 			<input type="password" ng-model="$ctrl.passwordVerif">
-	</md-input-container>
-	</br>
-	<md-input-container>
-			<label> Numéro : </label>
+		</md-input-container>
+		</br>
+		<md-input-container>
+				<label> Numéro : </label>
 			<input type="text" ng-model="$ctrl.streetNumber">
-	</md-input-container>
-	<md-input-container>
-			<label> Nom de la rue : </label>
+		</md-input-container>
+		<md-input-container>
+				<label> Nom de la rue : </label>
 			<input type="text" ng-model="$ctrl.streetName">
-	</md-input-container><md-input-container>
-			<label> Ville : </label>
+		</md-input-container><md-input-container>
+				<label> Ville : </label>
 			<input type="text" ng-model="$ctrl.user.adress.town">
-	</md-input-container>
-	<md-input-container>
+		</md-input-container>
+		<md-input-container>
 			<label> Code postal : </label>
 			<input type="text" ng-model="$ctrl.user.adress.zip">
-	</md-input-container>
-	<md-input-container>
-			<label> Pays :  </label>
-			<input type="text" ng-model="$ctrl.user.adress.country">
-	</md-input-container>
-	
-
+		</md-input-container>
+		<md-input-container>
+			<label> Pays </label>
+			<md-select ng-model="$ctrl.user.adress.country">
+				 <md-option ng-repeat="country in $ctrl.countries" value="{{country}}">
+				   {{country}}
+				 </md-option>
+			</md-select>
+		</md-input-container>
+	</form>
 	 <div class="inline-button">
 		<md-button class="md-raised" ng-click="$ctrl.register()">S'inscrire</md-button>
 	</div>

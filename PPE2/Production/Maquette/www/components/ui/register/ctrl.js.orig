@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 export default ['ConnectivityService', function(ConnectivityService){
   const self = this;
 
@@ -5,9 +6,8 @@ export default ['ConnectivityService', function(ConnectivityService){
     // TODO: add verifications and callback
     ConnectivityService.registerUser();
   }
-  
-  const countries = ['France', 'Great Britain', 'Deutschland', 'Luxembourg' , 'Italy', 'Espana', 'Portugal'];
-  
+
+  let countries = ['France', 'Great Britain', 'Deutschland', 'Luxembourg' , 'Italy', 'Espana', 'Portugal'];
   self.countries = countries;
   self.register = register;
 }];
