@@ -201,4 +201,39 @@ module.exports.checkRegistration = function(user, callback){
       }
     })
   }
+};
+
+module.exports.checkLogin = function(credentials, callback){
+   if(!credentials){
+    err = 'No credentials object given.';
+
+    console.log(err);
+    if(commonValid.isACallback(callback))
+        callback(err);
+  } 
+
+  else if (!credentials.mail) {
+    err = 'No property mail in credentials object';
+
+    console.log(err);
+    if(commonValid.isACallback(callback))
+        callback(err);
+  } 
+
+  else if (!credentials.password) {
+    err = 'No property password in credentials object';
+
+    console.log(err);
+    if(commonValid.isACallback(callback))
+        callback(err);
+  } else if (!validator.isEmail(credentials.mail)) {
+    err = 'Mail is in wrong format';
+
+    console.log(err);
+    if(commonValid.isACallback(callback))
+        callback(err);
+  } else {
+    if(commonValid.isACallback(callback))
+        callback();
+  }
 }

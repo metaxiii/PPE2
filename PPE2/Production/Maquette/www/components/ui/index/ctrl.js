@@ -4,12 +4,13 @@ export default ['AuthService', '$state', function(AuthService, $state){
 	const self = this;
 
 	const connect = () => {
-		if(!self.isConnected){
-			AuthService.connect()
+		// TODO: add crypt
+		if(!self.isConnected && self.credentials && self.credentials.mail && self.credentials.password){
+			AuthService.connect(self.credentials)
 				.then(function(){
 					self.isConnected = true;
-				}, function(){
-					console.error('Login failed, invalid credentials.')
+				}, function(err){
+					self.connexionError = err;
 				})
 		}
 	};

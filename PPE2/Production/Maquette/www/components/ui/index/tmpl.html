@@ -13,16 +13,18 @@
  	<div id="login" layout="column" ng-if="!$ctrl.isConnected">
 	   <md-input-container>
 	        <label>Email</label>
-	        <input type=email ng-model="user.Email">
+	        <input type="email"" ng-model="$ctrl.credentials.mail">
 	      </md-input-container>
 		<md-input-container>
 	        <label>Mot de passe</label>
-	        <input ng-model="user.motdepasse">
+	        <input type="password" ng-model="$ctrl.credentials.password">
 
 	      </md-input-container>
+		  <div>
+			{{$ctrl.connexionError}}
+		  </div>
 		  <md-button class="md-primary md-hue-1" ng-click="$ctrl.connect()">Connection</md-button>
 		   <a ui-sref="index.register">Pas encore inscrit?</a>
-		   <a ui-sref="lien de ta maman">Mot de passe oublié?</a>
 		</md-menu-content> 
 	</div>
 
