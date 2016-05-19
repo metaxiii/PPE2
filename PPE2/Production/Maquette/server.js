@@ -10,6 +10,17 @@ var User = require('./server/db/user');
 
 app.use(bodyParser.json());
 
+// Login
+app.post('/login', function(req, res){
+   User.login(req.body.credentials, function(err, result){
+       if(err){
+           res.send({fault: err});
+       } else {
+           console.log('User ' + req.body.credentials.mail + ' logged in.')
+           res.send({return: true});
+       }
+   }) 
+});
 
 // Register a new user
 app.post('/user', function(req, res){
@@ -22,15 +33,13 @@ app.post('/user', function(req, res){
     });
 });
 
-
-
 app.all('*', function(req, res){
     res.send('' +
     '<!DOCTYPE html>' +
     '<html>' +
         '<head>' +
             '<meta charset="utf-8" />' +
-            '<title></title>' +
+            '<title>Maison des ligues de lorraine</title>' +
             '<base href="/" />' +
         '</head>' +
         '<body>' +

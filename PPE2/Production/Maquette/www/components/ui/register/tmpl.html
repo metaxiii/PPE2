@@ -53,8 +53,11 @@
 				 </md-option>
 			</md-select>
 		</md-input-container>
+		<div class="error">
+			{{$ctrl.registerError}}
+		</div>
 		<div class="inline-button">
 			<md-button class="md-raised" ng-click="$ctrl.register()">S'inscrire</md-button>
 		</div>
-	</form> 
+	</form>
 </div>

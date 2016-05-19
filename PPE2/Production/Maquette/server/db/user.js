@@ -20,16 +20,35 @@ var User = mongoose.model('User', new mongoose.Schema({
   }
 }));
 
-var findUserForLogin = function(credentials, callback){
-  // TODO: complete function
-  User.find(function(err, results){
-    if(err){
-      console.log(err);
-      if(commonValid.isACallback(callback))
+var login = function(credentials, callback){
+  validator.checkLogin(credentials, function(err){
+    if(err) {
+      if(commonValid.isACallback(callback)){
         callback(err);
+      }
     } else {
-      if(commonValid.isACallback(callback))
-        callback(null, results);
+      User.find(
+        { 
+          mail: commonValid.prepareForDatabase(credentials.mail), 
+          password: commonValid.prepareForDatabase(credentials.password) 
+        }, function(err, results){
+          if(err){
+            console.log(err);
+            if(commonValid.isACallback(callback))
+              callback('An error occured with the database');
+          } else {
+            if(commonValid.isACallback(callback)){
+              if(results.length === 1){
+                callback(null, true);
+              } else {
+                var fault = 'Invalid credentials';
+                
+                console.log(fault);
+                callback(fault);
+              }
+            }
+          }
+        })
     }
   })
 };
@@ -57,10 +76,12 @@ var registerUser = function(user, callback){
       newUser.save(function(err){
         if(err){
           console.log(err);
-          callback('Issue when saving new user to database.');
+          if(commonValid.isACallback(callback))
+            callback('Issue when saving new user to database.');
         } else {
           console.log('User ' + user.nickname + ' (' + user.mail + ') added to database.');
-          callback();
+          if(commonValid.isACallback(callback))
+            callback();
         }
       })
     }
@@ -75,7 +96,8 @@ var nicknameTaken = function(nickname, callback) {
         callback(err);
       }
     } else {
-      callback(null, results.length === 1);
+      if(commonValid.isACallback(callback))
+        callback(null, results.length === 1);
     }
   })
 };
@@ -88,13 +110,14 @@ var mailTaken = function(mail, callback) {
         callback(err);
       }
     } else {
-      callback(null, results.length === 1);
+      if(commonValid.isACallback(callback))
+        callback(null, results.length === 1);
     }
   })
 };
 
 module.exports.User = User;
-module.exports.findUserForLogin = findUserForLogin;
+module.exports.login = login;
 module.exports.registerUser = registerUser;
 module.exports.nicknameTaken = nicknameTaken;
 module.exports.mailTaken = mailTaken;
