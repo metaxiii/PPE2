@@ -16,7 +16,7 @@ app.post('/login', function(req, res){
        if(err){
            res.send({fault: err});
        } else {
-           console.log('User logged in.')
+           console.log('User ' + req.body.credentials.mail + ' logged in.')
            res.send({return: true});
        }
    }) 
