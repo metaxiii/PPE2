@@ -10,8 +10,9 @@ var User = require('./server/db/user');
 
 app.use(bodyParser.json());
 
-app.put('/user', function(req, res){
-    // Add callback
+
+// Register a new user
+app.post('/user', function(req, res){
     User.registerUser(req.body.newUser, function(err){
         if(err){
             res.send({fault: err});
@@ -20,6 +21,8 @@ app.put('/user', function(req, res){
         }
     });
 });
+
+
 
 app.all('*', function(req, res){
     res.send('' +
