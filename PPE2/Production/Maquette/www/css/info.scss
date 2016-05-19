@@ -2,6 +2,7 @@
 width : 90% ; 
 margin : auto ;
 margin-top : 4em ;}
+
 .tableau {
 border-radius : 4px; 
 border-collapse : collapse ;
@@ -25,7 +26,23 @@ text-decoration : none ;
    font-weight : bold; 
    color : black ;
 }
-.inline-button {
-display : flex;}
 .nodecoration {
 text-decoration : none ;}
+
+.blocright {
+width : 70% ;
+margin : auto ;
+margin-left : 50% ;
+margin-top : -10% ;
+ }
+
+.blocleft {
+width : 30% ;}
+
+.container {
+width : 100% ;
+
+justify-content: space-around;
+flex-direction : row ;
+}
+
