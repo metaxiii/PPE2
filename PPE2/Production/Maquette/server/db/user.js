@@ -1,5 +1,8 @@
 var mongoose = require('mongoose');
 
+var commonValid = require('./../validators/common');
+var validator = require('./../validators/user');
+
 mongoose.connect('mongodb://localhost/user');
 
 var User = mongoose.model('User', new mongoose.Schema({
@@ -18,36 +21,80 @@ var User = mongoose.model('User', new mongoose.Schema({
 }));
 
 var findUserForLogin = function(credentials, callback){
+  // TODO: complete function
   User.find(function(err, results){
     if(err){
       console.log(err);
-      if(callback && typeof(callback) == "function"){
+      if(commonValid.isACallback(callback))
         callback(err);
-      }
     } else {
-      if(callback && typeof(callback) == "function")
+      if(commonValid.isACallback(callback))
         callback(null, results);
     }
   })
 };
 
-var registerUser = function(user){
-  // Add callback, and unique verifications
-  if(user && user.name && user.mail && user.password && user.adress && user.adress.street && user.adress.zip && user.adress.town && user.adress.country){
-    var newUser = new User(user);
-
-    newUser.save(function(err){
-      if(err){
-        console.log(err);
-      } else {
-        console.log('User ' + user.mail + ' added to database.')
+var registerUser = function(user, callback){
+  validator.checkRegistration(user, function(err){
+    if(err){
+      if(commonValid.isACallback(callback)){
+        callback(err);
       }
-    })
-  } else {
-    console.log('Missing arguments in registerUser function.');
-  }
-}
+    } else {
+      var newUser = new User({
+        nickname: commonValid.prepareForDatabase(user.nickname),
+        name: commonValid.prepareForDatabase(user.name),
+        mail: commonValid.prepareForDatabase(user.mail),
+        password: commonValid.prepareForDatabase(user.password),
+        adress: {
+          street: commonValid.prepareForDatabase(user.adress.street),
+          zip: commonValid.prepareForDatabase(user.adress.zip),
+          town: commonValid.prepareForDatabase(user.adress.town),
+          country: commonValid.prepareForDatabase(user.adress.country)
+        }
+      });
+
+      newUser.save(function(err){
+        if(err){
+          console.log(err);
+          callback('Issue when saving new user to database.');
+        } else {
+          console.log('User ' + user.nickname + ' (' + user.mail + ') added to database.');
+          callback();
+        }
+      })
+    }
+  });
+};
+
+var nicknameTaken = function(nickname, callback) {
+  User.find({ nickname: nickname }, function(err, results){
+    if(err){
+      console.log(err);
+      if(commonValid.isACallback(callback)){
+        callback(err);
+      }
+    } else {
+      callback(null, results.length === 1);
+    }
+  })
+};
+
+var mailTaken = function(mail, callback) {
+  User.find({ mail: mail }, function(err, results){
+    if(err){
+      console.log(err);
+      if(commonValid.isACallback(callback)){
+        callback(err);
+      }
+    } else {
+      callback(null, results.length === 1);
+    }
+  })
+};
 
 module.exports.User = User;
 module.exports.findUserForLogin = findUserForLogin;
 module.exports.registerUser = registerUser;
+module.exports.nicknameTaken = nicknameTaken;
+module.exports.mailTaken = mailTaken;

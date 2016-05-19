@@ -12,8 +12,13 @@ app.use(bodyParser.json());
 
 app.put('/user', function(req, res){
     // Add callback
-    console.log('Register user request.');
-    User.registerUser(req.body.newUser);
+    User.registerUser(req.body.newUser, function(err){
+        if(err){
+            res.send({fault: err});
+        } else {
+            res.send({return: true});
+        }
+    });
 });
 
 app.all('*', function(req, res){

@@ -23,7 +23,8 @@
     "express": "^4.13.4",
     "html-entities": "^1.2.0",
     "lodash": "^4.7.0",
-    "mongoose": "^4.4.11"
+    "mongoose": "^4.4.11",
+    "validator": "^5.2.0"
   },
   "devDependencies": {
     "autoprefixer-loader": "^3.2.0",

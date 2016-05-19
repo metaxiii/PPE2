@@ -1,0 +1,204 @@
+var validator = require('validator');
+var commonValid = require('./common');
+var User = require('./../db/user');
+
+// TODO: factorize
+var config = {
+  size_limit: {
+    NICKNAME: 50,
+    NAME: 50,
+    MAIL: 100,
+    adress: {
+      STREET: 250,
+      ZIP: 5,
+      TOWN: 50,
+      COUNTRY: 50
+    }
+  }
+}
+
+module.exports.checkRegistration = function(user, callback){
+  var err = '';
+  // Complete object validation
+  if(!user){
+    err = 'No user object given.';
+
+    console.log(err);
+    if(commonValid.isACallback(callback))
+        callback(err);
+  } 
+
+  else if (!user.name) {
+    err = 'No property name in user object';
+
+    console.log(err);
+    if(commonValid.isACallback(callback))
+        callback(err);
+  } 
+
+  else if (!user.mail) {
+    err = 'No property mail in user object';
+
+    console.log(err);
+    if(commonValid.isACallback(callback))
+        callback(err);
+  } 
+
+  else if (!user.password) {
+    err = 'No property password in user object';
+
+    console.log(err);
+    if(commonValid.isACallback(callback))
+        callback(err);
+  } 
+
+  else if (!user.adress) {
+    err = 'No property adress in user object';
+
+    console.log(err);
+    if(commonValid.isACallback(callback))
+        callback(err);
+  } 
+
+  else if (!user.adress.street) {
+    err = 'No property adress.street in user object';
+
+    console.log(err);
+    if(commonValid.isACallback(callback))
+        callback(err);
+  } 
+
+  else if (!user.adress.zip) {
+    err = 'No property adress.zip in user object';
+
+    console.log(err);
+    if(commonValid.isACallback(callback))
+        callback(err);
+  } 
+
+  else if (!user.adress.town) {
+    err = 'No property adress.town in user object';
+
+    console.log(err);
+    if(commonValid.isACallback(callback))
+        callback(err);
+  } 
+
+  else if (!user.adress.country) {
+    err = 'No property adress.country in user object';
+
+    console.log(err);
+    if(commonValid.isACallback(callback))
+        callback(err);
+  }
+
+  // Sizes validation
+  else if(user.name.length > config.size_limit.NAME){
+    err = 'name exceed size limit'
+
+    console.log(err);
+    if(commonValid.isACallback(callback))
+        callback(err);
+  } 
+
+  else if(user.nickname.length > config.size_limit.NICKNAME){
+    err = 'nickname exceed size limit'
+
+    console.log(err);
+    if(commonValid.isACallback(callback))
+        callback(err);
+  } 
+
+  else if(user.adress.street.length > config.size_limit.adress.STREET){
+    err = 'adress.street exceed size limit'
+
+    console.log(err);
+    if(commonValid.isACallback(callback))
+        callback(err);
+  } 
+
+  else if(user.adress.zip.length > config.size_limit.adress.ZIP){
+    err = 'adress.zip exceed size limit'
+
+    console.log(err);
+    if(commonValid.isACallback(callback))
+        callback(err);
+  } 
+
+  else if(user.adress.town.length > config.size_limit.adress.TOWN){
+    err = 'adress.town exceed size limit'
+
+    console.log(err);
+    if(commonValid.isACallback(callback))
+        callback(err);
+  } 
+
+  else if(user.adress.country.length > config.size_limit.adress.COUNTRY){
+    err = 'adress.country exceed size limit'
+
+    console.log(err);
+    if(commonValid.isACallback(callback))
+        callback(err);
+  } 
+
+  else if(user.mail.length > config.size_limit.MAIL){
+    err = 'mail exceed size limit'
+
+    console.log(err);
+    if(commonValid.isACallback(callback))
+        callback(err);
+  }
+
+  // ZIP
+  else if(!user.adress.zip.match(/^[0-9]+$/)){
+    err = 'ZIP code in wrong format'
+
+    console.log(err);
+    if(commonValid.isACallback(callback))
+        callback(err);
+  }
+
+  // Mail
+  else if(!validator.isEmail(user.mail)){
+    err = 'mail in wrong format'
+
+    console.log(err);
+    if(commonValid.isACallback(callback))
+        callback(err);
+  } else {
+    // Check multiple nickname
+    User.nicknameTaken(user.nickname, function(err, results){
+      if(err){
+        console.log(err);
+        if(commonValid.isACallback(callback)){
+          callback(err);
+        }
+      } else {
+        if(results === true){
+          console.log('Nickname is already taken')
+          callback('Nickname already taken');
+        } else {
+          // Check multiple mail
+          User.mailTaken(user.mail, function(err, results){
+            if(err){
+              console.log(err);
+              if(commonValid.isACallback(callback)){
+                callback(err);
+              }
+            } else {
+              if(results === true){
+                if(commonValid.isACallback(callback)){
+                  console.log('Mail is already taken')
+                  callback('Mail already taken');
+                }
+              } else {
+                // Positive case
+                callback();
+              }
+            }
+          })
+        }
+      }
+    })
+  }
+}
