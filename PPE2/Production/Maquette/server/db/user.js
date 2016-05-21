@@ -3,8 +3,6 @@ var mongoose = require('mongoose');
 var commonValid = require('./../validators/common');
 var validator = require('./../validators/user');
 
-mongoose.connect('mongodb://localhost/user');
-
 var User = mongoose.model('User', new mongoose.Schema({
   registerDate: { type: Date, default: Date.now },
   loginDate: { type: Date, default: Date.now },

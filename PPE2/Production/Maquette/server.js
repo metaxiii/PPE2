@@ -1,9 +1,14 @@
 var express = require('express');
 var bodyParser = require('body-parser');
+var mongoose = require('mongoose');
+
 var PORT = process.env.PORT || 1000;
 var app = express();
 
+mongoose.connect('mongodb://localhost/booking');
+
 var User = require('./server/db/user');
+var Booking = require('./server/db/ppe2');
 
 // Used for production build
 // app.use(express.static(path.join(__dirname, 'public')));
@@ -31,6 +36,17 @@ app.post('/user', function(req, res){
             res.send({return: true});
         }
     });
+});
+
+// Get the booking for a room
+app.get('/getBookingByRoom', function(req, res) {
+   Booking.getBookingByRoom(req.body.room, function(err, result) {
+        if(err) {
+            res.send({fault: err});
+        } else {
+            res.send({return: result});
+        }
+   }); 
 });
 
 app.all('*', function(req, res){
