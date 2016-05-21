@@ -2,7 +2,7 @@ import amphitheatre from './../../../img/amphi.jpg' ;
 import conviv from './../../../img/conviv.jpg' ; 
 import reunion from './../../../img/reunion.jpg' ; 
 
-export default function(){
+export default ['BookingService', function(BookingService){
 	const self = this ;
 	
 	const rooms = [
@@ -13,37 +13,22 @@ export default function(){
 	
 	const getBookingDateByRoom = function(room) {
 		//TODO
-		console.log(room)
-	}
+		console.log(room);
+	};
 	
+	const bookARoom = function() {
+		console.log('ctrl')
+		//TODO: callback
+		BookingService.bookARoom({
+			room: self.room,
+			bookingDate: self.bookingDate
+		})
+	};
+	
+	self.bookARoom = bookARoom;
 	self.getBookingDateByRoom = getBookingDateByRoom;
 	self.rooms = rooms;
 	self.conviv = conviv ;
 	self.reunion = reunion ; 
 	self.amphitheatre = amphitheatre ;
-	
-	// const showBookingDialog = (room) => {
-	// 	let dialogController = ['$mdDialog', 'room', function($mdDialog, room) {
-	// 		self.room = room;
-			
-	// 		self.cancel = function(){
-	// 			$mdDialog.hide();
-	// 		};
-	// 	}]
-	// 	$mdDialog.show({
-	// 		template: 	'<md-dialog flex>' +
-	// 						'<md-dialog-content layout="column">' +
-	// 							'<h3>{{room}}</h3>' +
-	// 							'<label>Date de réservation</label>' +
-	// 							'<md-datepicker ng-model="bookingDate"></md-datepicker>' +
-	// 						'</md-dialog-content>' +
-	// 					'</md-dialog>',
-	// 		locals: {
-	// 			room: room
-	// 		},
-	// 		controller: dialogController
-	// 	})
-	// };
-	
-	// self.showBookingDialog = showBookingDialog;
-};
+}]

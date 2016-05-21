@@ -3,14 +3,17 @@ import uiRouter from 'angular-ui-router';
 import ngMdIcons from 'angular-material-icons';
 import ngMaterial from 'angular-material';
 
+import roomFilter from './filters/roomFilter';
+
 import AuthService from './services/AuthService';
+import BookingService from './services/BookingService';
 import ConnectivityService from './services/ConnectivityService';
 
 import indexComp from './components/ui/index/index';
 import infoComp from './components/ui/info/info';
 import bookingComp from './components/ui/booking/booking';
 import registerComp from './components/ui/register/register';
-import roomFilter from './filters/roomFilter';
+
 
 const app = angular.module('app', [uiRouter, ngMdIcons, ngMaterial]);
 
@@ -25,6 +28,7 @@ app.filter('roomFilter', roomFilter);
 
 // Services
 app.service('AuthService', AuthService);
+app.service('BookingService', BookingService);
 app.service('ConnectivityService', ConnectivityService);
 
 app.config(($stateProvider, $urlRouterProvider, $locationProvider) => {
