@@ -1,63 +1,78 @@
-<div class="text-body">
-	<form>	
-		<md-input-container>
-				<label>Nom d'utilisateur : </label>
+<div class="register" layout="row" layout-align=" center center">
+	<div class="text-body" flex="50" layout= "column">
+	<form layout-fill>
+	<div layout="row" layout-align="start center" flex />
+		<md-input-container flex="50">
+			<label>Nom d'utilisateur</label>
 			<input type="text" ng-model="$ctrl.user.nickname">
 		</md-input-container>
-		</br>
-		<md-input-container>
-				<label>Nom :</label>
+   </div>
+   <div layout="row" layout-align="start center" flex>
+		<md-input-container flex="50">
+				<label>Nom</label>
 			<input type="text" ng-model="$ctrl.user.name">
 		</md-input-container>
-		</br>
-		<md-input-container>
-				<label>Adresse email :  </label>
+   </div>
+	<div layout="row" layout-align="center start" flex>
+		<md-input-container flex="50">
+				<label>Adresse email</label>
 			<input type="email" ng-model="$ctrl.user.mail"> 
 		</md-input-container>
-		</br>
-		<md-input-container>
-				<label>Confirmez l'adresse email :  </label>
+		
+		<md-input-container flex="50">
+				<label>Confirmez l'adresse email</label>
 			<input type="email" ng-model="$ctrl.mailVerif"> 
 		</md-input-container>
-		</br>
-		<md-input-container>
-				<label> Mot de passe</label>
+	</div>
+	<div layout="row" layout-align="center start" flex>
+		<md-input-container flex="50">
+				<label>Mot de passe</label>
 			<input type="password" ng-model="$ctrl.user.password">
 		</md-input-container>
-		<span> | </span>
-		<md-input-container>
+	
+		<md-input-container flex="50">
 				<label>Confirmer le mot de passe</label>
 			<input type="password" ng-model="$ctrl.passwordVerif">
 		</md-input-container>
-		</br>
-		<md-input-container>
-				<label> Numéro : </label>
+	</div>
+	<div layout="row" layout-align="center start" flex>
+		<md-input-container flex="33">
+				<label>Numéro</label>
 			<input type="text" ng-model="$ctrl.streetNumber">
 		</md-input-container>
-		<md-input-container>
-				<label> Nom de la rue : </label>
+		
+		<md-input-container flex="66">
+				<label>Nom de la rue</label>
 			<input type="text" ng-model="$ctrl.streetName">
-		</md-input-container><md-input-container>
-				<label> Ville : </label>
+		</md-input-container>
+	</div>
+	<div layout="row" layout-align="center start" flex>
+		<md-input-container flex="50">
+				<label>Ville</label>
 			<input type="text" ng-model="$ctrl.user.adress.town">
 		</md-input-container>
-		<md-input-container>
-			<label> Code postal : </label>
+		
+		<md-input-container flex="50">
+			<label>Code postal</label>
 			<input type="text" ng-model="$ctrl.user.adress.zip">
 		</md-input-container>
-		<md-input-container>
-			<label> Pays : </label>
+	</div>
+	
+		<md-input-container flex="50">
+			<label>Pays</label>
 			<md-select ng-model="$ctrl.user.adress.country">
 				 <md-option ng-repeat="country in $ctrl.countries" value="{{country}}">
 				   {{country}}
 				 </md-option>
 			</md-select>
 		</md-input-container>
+		
 		<div class="error">
 			{{$ctrl.registerError}}
 		</div>
-		<div class="inline-button">
-			<md-button class="md-raised" ng-click="$ctrl.register()">S'inscrire</md-button>
+		<div layout="row" layout-align="center start" class="inline-button">
+			<md-button class="md-raised md-primary" ng-click="$ctrl.register()">S'inscrire</md-button>
 		</div>
 	</form>
+	</div>
 </div>
