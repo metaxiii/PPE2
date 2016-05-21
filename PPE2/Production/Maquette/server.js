@@ -5,10 +5,10 @@ var mongoose = require('mongoose');
 var PORT = process.env.PORT || 1000;
 var app = express();
 
-mongoose.connect('mongodb://localhost/booking');
+mongoose.connect('mongodb://localhost/ppe2');
 
 var User = require('./server/db/user');
-var Booking = require('./server/db/ppe2');
+var Booking = require('./server/db/booking');
 
 // Used for production build
 // app.use(express.static(path.join(__dirname, 'public')));
