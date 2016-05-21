@@ -27,6 +27,7 @@
     "html-entities": "^1.2.0",
     "lodash": "^4.7.0",
     "mongoose": "^4.4.11",
+    "path": "^0.12.7",
     "validator": "^5.2.0"
   },
   "devDependencies": {
