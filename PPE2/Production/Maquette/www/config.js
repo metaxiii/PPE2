@@ -10,6 +10,7 @@ import indexComp from './components/ui/index/index';
 import infoComp from './components/ui/info/info';
 import bookingComp from './components/ui/booking/booking';
 import registerComp from './components/ui/register/register';
+import roomFilter from './filters/roomFilter';
 
 const app = angular.module('app', [uiRouter, ngMdIcons, ngMaterial]);
 
@@ -18,6 +19,9 @@ app.component('index', indexComp);
 app.component('info', infoComp);
 app.component('booking', bookingComp);
 app.component('register', registerComp);
+
+// Filters
+app.filter('roomFilter', roomFilter);
 
 // Services
 app.service('AuthService', AuthService);

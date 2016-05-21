@@ -5,6 +5,19 @@ import reunion from './../../../img/reunion.jpg' ;
 export default function(){
 	const self = this ;
 	
+	const rooms = [
+		'amphitheater',
+		'meeting',
+		'friendly'
+	]
+	
+	const getBookingDateByRoom = function(room) {
+		//TODO
+		console.log(room)
+	}
+	
+	self.getBookingDateByRoom = getBookingDateByRoom;
+	self.rooms = rooms;
 	self.conviv = conviv ;
 	self.reunion = reunion ; 
 	self.amphitheatre = amphitheatre ;
