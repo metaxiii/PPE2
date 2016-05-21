@@ -5,7 +5,7 @@
 			<figcaption layout="row" layout-align="center center">Amphithéâtre</figcaption>
 			
 			<div layout="row" layout-align="center center">
-				<md-button ng-click="$ctrl.showBookingDialog('')">Réserver la salle</md-button>
+				<md-button ng-click="$ctrl.setRoom('Amphithéâte')">Réserver la salle</md-button>
 			</div>
 		</figure>
 		<figure>
@@ -13,7 +13,7 @@
 			<figcaption layout="row" layout-align="center center">Salle conviviale</figcaption>
 			
 			<div layout="row" layout-align="center center">
-				<md-button ng-click="$ctrl.showBookingDialog('Salle conviviale')">Réserver la salle</md-button>
+				<md-button ng-click="$ctrl.setRoom('Salle conviviale')">Réserver la salle</md-button>
 			</div>
 		</figure>
 		<figure>
@@ -21,8 +21,24 @@
 			<figcaption layout="row" layout-align="center center">Salle de réunion</figcaption>
 			
 			<div layout="row" layout-align="center center">
-				<md-button ng-click="$ctrl.showBookingDialog('Salle de réunion')">Réserver la salle</md-button>
+				<md-button ng-click="$ctrl.setRoom('Salle de réunion')">Réserver la salle</md-button>
 			</div>
 		</figure>
+	</div>
+	
+	<div>
+		<h3>{{$ctrl.room | roomFilter}}</h3>
+		<md-input-container>
+			<label>Salle</label>
+			<md-select ng-model="$ctrl.room" md-on-close="$ctrl.getBookingDateByRoom($ctrl.room)">
+				<md-option 	ng-repeat="room in $ctrl.rooms"
+							ng-value="room">
+					{{room | roomFilter}}
+				</md-option>
+			</md-select>
+		</md-input-container>
+		<label>Date de réservation:</label>
+		<md-datepicker ng-model="$ctrl.bookingDate"></md-datepicker>
+		<md-button ng-click="$ctrl.bookARoom()">Réserver</md-button>
 	</div>
 </div>

@@ -40,7 +40,7 @@ app.post('/user', function(req, res){
 });
 
 // Get the booking for a room
-app.get('/getBookingByRoom', function(req, res) {
+app.get('/roomBooking', function(req, res) {
    Booking.getBookingByRoom(req.body.room, function(err, result) {
         if(err) {
             res.send({fault: err});
