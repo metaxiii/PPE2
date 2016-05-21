@@ -1,5 +1,17 @@
-@import 'info';
+// @import 'info';
 
+.nodecoration {
+text-decoration : none ;
+}
+.label {
+    color: red;
+}
 .error {
     color: darkred !important;
 }
+
+md-input-container label{
+    color: rgb(63,81,181);
+}
+
+

@@ -1,29 +1,28 @@
-<div class="text-body">
-	<div class="container">
-		<div class="blocleft">
-			<img ng-src="{{$ctrl.amphitheatre}}" alt = "Amphitheatre" width="500px" />
-		</div>
-		<div class="blocright">
-			<md-button class="md-raised md-warn">Réserver cette salle</md-button>
-		</div>
-	</div>
-	
-	<div class="container">
-		<div class="blocleft">
-			<img ng-src="{{$ctrl.conviv}}" alt = "conviv" width="500px" />
-		</div>
-		<div class="blocright">
-			<md-button class="md-raised md-warn">Réserver cette salle</md-button>
-		</div>
-	</div>
-	
-	
-	<div class="container">
-		<div class="blocleft">
-			<img ng-src="{{$ctrl.reunion}}" alt = "reunion" width="500px" />
-		</div>
-		<div class="blocright">
-			<md-button class="md-raised md-warn">Réserver cette salle</md-button>
-		</div>
+<div>
+	<div layout="row" layout-align="space-between center" layout-padding>
+		<figure>
+			<img ng-src="{{$ctrl.amphitheatre}}" alt="Amphitheatre" width="500px" />
+			<figcaption layout="row" layout-align="center center">Amphithéâtre</figcaption>
+			
+			<div layout="row" layout-align="center center">
+				<md-button ng-click="$ctrl.showBookingDialog('')">Réserver la salle</md-button>
+			</div>
+		</figure>
+		<figure>
+			<img ng-src="{{$ctrl.conviv}}" alt="conviv" width="500px" />
+			<figcaption layout="row" layout-align="center center">Salle conviviale</figcaption>
+			
+			<div layout="row" layout-align="center center">
+				<md-button ng-click="$ctrl.showBookingDialog('Salle conviviale')">Réserver la salle</md-button>
+			</div>
+		</figure>
+		<figure>
+			<img ng-src="{{$ctrl.reunion}}" alt="reunion" width="500px" />
+			<figcaption layout="row" layout-align="center center">Salle de réunion</figcaption>
+			
+			<div layout="row" layout-align="center center">
+				<md-button ng-click="$ctrl.showBookingDialog('Salle de réunion')">Réserver la salle</md-button>
+			</div>
+		</figure>
 	</div>
 </div>
