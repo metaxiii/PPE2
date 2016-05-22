@@ -2,6 +2,7 @@ import angular from 'angular';
 import uiRouter from 'angular-ui-router';
 import ngMdIcons from 'angular-material-icons';
 import ngMaterial from 'angular-material';
+import ngMessage from 'angular-messages';
 
 import roomFilter from './filters/roomFilter';
 
@@ -15,7 +16,7 @@ import bookingComp from './components/ui/booking/booking';
 import registerComp from './components/ui/register/register';
 
 
-const app = angular.module('app', [uiRouter, ngMdIcons, ngMaterial]);
+const app = angular.module('app', [uiRouter, ngMdIcons, ngMaterial, ngMessage]);
 
 // Routes
 app.component('index', indexComp);
