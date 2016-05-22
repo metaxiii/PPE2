@@ -1,6 +1,7 @@
 var validator = require('validator');
 var commonValid = require('./common');
 var User = require('./../db/user');
+var writelog = require('./../writelog').writelog;
 
 // TODO: factorize
 var config = {
@@ -18,6 +19,7 @@ var config = {
 }
 
 module.exports.checkRegistration = function(user, callback){
+  var TYPE = 'NEW USER VALIDATIONS';
   var err = '';
   // Complete object validation
   if(!user){
@@ -26,6 +28,8 @@ module.exports.checkRegistration = function(user, callback){
     console.log(err);
     if(commonValid.isACallback(callback))
         callback(err);
+        
+    writelog(err, TYPE);
   } 
 
   else if (!user.name) {
@@ -34,6 +38,8 @@ module.exports.checkRegistration = function(user, callback){
     console.log(err);
     if(commonValid.isACallback(callback))
         callback(err);
+        
+    writelog(err, TYPE);
   } 
 
   else if (!user.mail) {
@@ -42,6 +48,8 @@ module.exports.checkRegistration = function(user, callback){
     console.log(err);
     if(commonValid.isACallback(callback))
         callback(err);
+        
+    writelog(err, TYPE);
   } 
 
   else if (!user.password) {
@@ -50,6 +58,8 @@ module.exports.checkRegistration = function(user, callback){
     console.log(err);
     if(commonValid.isACallback(callback))
         callback(err);
+        
+    writelog(err, TYPE);
   } 
 
   else if (!user.adress) {
@@ -58,6 +68,8 @@ module.exports.checkRegistration = function(user, callback){
     console.log(err);
     if(commonValid.isACallback(callback))
         callback(err);
+        
+    writelog(err, TYPE);
   } 
 
   else if (!user.adress.street) {
@@ -66,6 +78,8 @@ module.exports.checkRegistration = function(user, callback){
     console.log(err);
     if(commonValid.isACallback(callback))
         callback(err);
+        
+    writelog(err, TYPE);
   } 
 
   else if (!user.adress.zip) {
@@ -74,6 +88,8 @@ module.exports.checkRegistration = function(user, callback){
     console.log(err);
     if(commonValid.isACallback(callback))
         callback(err);
+        
+    writelog(err, TYPE);
   } 
 
   else if (!user.adress.town) {
@@ -82,6 +98,8 @@ module.exports.checkRegistration = function(user, callback){
     console.log(err);
     if(commonValid.isACallback(callback))
         callback(err);
+        
+    writelog(err, TYPE);
   } 
 
   else if (!user.adress.country) {
@@ -90,6 +108,8 @@ module.exports.checkRegistration = function(user, callback){
     console.log(err);
     if(commonValid.isACallback(callback))
         callback(err);
+        
+    writelog(err, TYPE);
   }
 
   // Sizes validation
@@ -99,6 +119,8 @@ module.exports.checkRegistration = function(user, callback){
     console.log(err);
     if(commonValid.isACallback(callback))
         callback(err);
+        
+    writelog(err, TYPE);
   } 
 
   else if(user.nickname.length > config.size_limit.NICKNAME){
@@ -107,6 +129,8 @@ module.exports.checkRegistration = function(user, callback){
     console.log(err);
     if(commonValid.isACallback(callback))
         callback(err);
+        
+    writelog(err, TYPE);
   } 
 
   else if(user.adress.street.length > config.size_limit.adress.STREET){
@@ -115,6 +139,8 @@ module.exports.checkRegistration = function(user, callback){
     console.log(err);
     if(commonValid.isACallback(callback))
         callback(err);
+        
+    writelog(err, TYPE);
   } 
 
   else if(user.adress.zip.length > config.size_limit.adress.ZIP){
@@ -123,6 +149,8 @@ module.exports.checkRegistration = function(user, callback){
     console.log(err);
     if(commonValid.isACallback(callback))
         callback(err);
+        
+    writelog(err, TYPE);
   } 
 
   else if(user.adress.town.length > config.size_limit.adress.TOWN){
@@ -131,6 +159,8 @@ module.exports.checkRegistration = function(user, callback){
     console.log(err);
     if(commonValid.isACallback(callback))
         callback(err);
+        
+    writelog(err, TYPE);
   } 
 
   else if(user.adress.country.length > config.size_limit.adress.COUNTRY){
@@ -139,6 +169,8 @@ module.exports.checkRegistration = function(user, callback){
     console.log(err);
     if(commonValid.isACallback(callback))
         callback(err);
+        
+    writelog(err, TYPE);
   } 
 
   else if(user.mail.length > config.size_limit.MAIL){
@@ -147,6 +179,8 @@ module.exports.checkRegistration = function(user, callback){
     console.log(err);
     if(commonValid.isACallback(callback))
         callback(err);
+        
+    writelog(err, TYPE);
   }
 
   // ZIP
@@ -156,6 +190,8 @@ module.exports.checkRegistration = function(user, callback){
     console.log(err);
     if(commonValid.isACallback(callback))
         callback(err);
+        
+    writelog(err, TYPE);
   }
 
   // Mail
@@ -165,6 +201,8 @@ module.exports.checkRegistration = function(user, callback){
     console.log(err);
     if(commonValid.isACallback(callback))
         callback(err);
+        
+    writelog(err, TYPE);
   } else {
     // Check multiple nickname
     User.nicknameTaken(user.nickname, function(err, results){
@@ -172,11 +210,15 @@ module.exports.checkRegistration = function(user, callback){
         console.log(err);
         if(commonValid.isACallback(callback)){
           callback(err);
+        
+          writelog(err, TYPE);
         }
       } else {
         if(results === true){
           console.log('Nickname is already taken')
           callback('Nickname already taken');
+        
+          writelog('Nickname already taken', TYPE);
         } else {
           // Check multiple mail
           User.mailTaken(user.mail, function(err, results){
@@ -185,11 +227,15 @@ module.exports.checkRegistration = function(user, callback){
               if(commonValid.isACallback(callback)){
                 callback(err);
               }
+        
+              writelog(err, TYPE);
             } else {
               if(results === true){
                 if(commonValid.isACallback(callback)){
                   console.log('Mail is already taken')
                   callback('Mail already taken');
+        
+                  writelog('Mail already taken', TYPE);
                 }
               } else {
                 // Positive case
@@ -204,12 +250,15 @@ module.exports.checkRegistration = function(user, callback){
 };
 
 module.exports.checkLogin = function(credentials, callback){
+  var TYPE = 'LOGIN VALIDATIONS';
    if(!credentials){
     err = 'No credentials object given.';
 
     console.log(err);
     if(commonValid.isACallback(callback))
         callback(err);
+        
+    writelog(err, TYPE);
   } 
 
   else if (!credentials.mail) {
@@ -218,6 +267,8 @@ module.exports.checkLogin = function(credentials, callback){
     console.log(err);
     if(commonValid.isACallback(callback))
         callback(err);
+        
+    writelog(err, TYPE);
   } 
 
   else if (!credentials.password) {
@@ -226,14 +277,18 @@ module.exports.checkLogin = function(credentials, callback){
     console.log(err);
     if(commonValid.isACallback(callback))
         callback(err);
+        
+    writelog(err, TYPE);
   } else if (!validator.isEmail(credentials.mail)) {
     err = 'Mail is in wrong format';
 
     console.log(err);
     if(commonValid.isACallback(callback))
         callback(err);
+        
+    writelog(err, TYPE);
   } else {
     if(commonValid.isACallback(callback))
         callback();
   }
-}
+};

@@ -1,4 +1,5 @@
 var commonValid = require('./common');
+var writelog = require('./../writelog').writelog;
 
 var checkARoom = function(room) {
     if(!room) {
@@ -17,6 +18,7 @@ var checkARoom = function(room) {
 }
 
 var checkRoom = function(room, callback) {
+    var TYPE = 'ROOM VERIFICATIONS';
     var res = checkARoom(room);
     if(res === true){
         if(commonValid.isACallback(callback)){
@@ -26,10 +28,13 @@ var checkRoom = function(room, callback) {
         if(commonValid.isACallback(callback)){
             callback(res);
         }
+        
+        writelog(res, TYPE);
     }
 };
 
 var checkBooking = function(book, callback){
+    var type = 'BOOKING VERIFICATIONS';
     if(!book) {
         var err = 'No booking object is given';
             
@@ -37,6 +42,8 @@ var checkBooking = function(book, callback){
         if(commonValid.isACallback(callback)){
             callback(err);
         }
+        
+        writelog(err, TYPE);
     } else if (!book.bookingDate){
         var err = 'No bookingDate field in booking object'
         
@@ -44,6 +51,8 @@ var checkBooking = function(book, callback){
         if(commonValid.isACallback(callback)){
             callback(err);
         }
+        
+        writelog(err, TYPE);
     } else {
         var res = checkARoom(book.room);
         
@@ -55,6 +64,8 @@ var checkBooking = function(book, callback){
             if(commonValid.isACallback(callback)){
                 callback(res);
             }
+        
+            writelog(res, TYPE);
         }
     }
 };
