@@ -93,10 +93,11 @@
 		
 		<md-input-container flex="50">
 			<label>Code postal</label>
-			<input type="text" ng-model="$ctrl.user.adress.zip" name="userAdressZip" md-maxlength="5" required>
+			<input type="text" ng-model="$ctrl.user.adress.zip" name="userAdressZip" md-maxlength="5" required  ng-pattern="/[0-9]+/" placeholder="12345">
 			<div ng-messages="registrationForm.userAdressZip.$error" ng-show="registrationForm.userAdressZip.$dirty">
 				<div ng-message="required">Champs requis</div>
 				<div ng-message="md-maxlength">trop de caractères</div>
+				<div ng-message="pattern">Chiffres uniquement</div>
 			</div>
 		</md-input-container>
 	</div>
