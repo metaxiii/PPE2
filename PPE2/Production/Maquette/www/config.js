@@ -32,7 +32,7 @@ app.service('AuthService', AuthService);
 app.service('BookingService', BookingService);
 app.service('ConnectivityService', ConnectivityService);
 
-app.config(($stateProvider, $urlRouterProvider, $locationProvider) => {
+app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', ($stateProvider, $urlRouterProvider, $locationProvider) => {
     $stateProvider
         .state('index', {
             url: '/',
@@ -55,6 +55,6 @@ app.config(($stateProvider, $urlRouterProvider, $locationProvider) => {
     $urlRouterProvider.otherwise('/info');
 
     $locationProvider.html5Mode(true);
-});
+}]);
 
 export default app;
