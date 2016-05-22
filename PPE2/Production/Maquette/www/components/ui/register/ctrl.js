@@ -2,6 +2,9 @@ import sha256 from 'crypto-js/sha256';
 
 export default ['AuthService', function(AuthService){
   const self = this;
+  
+  if(AuthService.getAuth())
+		$state.go('index.info');
 
   const register = function(){
     self.registerError = '';

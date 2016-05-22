@@ -1,7 +1,8 @@
 import sha256 from 'crypto-js/sha256';
 import m2l_logo from './../../../img/m2l_logo.png' ;
 
-export default ['AuthService', '$state', '$timeout', function(AuthService, $state, $timeout){
+export default ['AuthService', '$state', '$timeout', 
+function(AuthService, $state, $timeout){
 	let isConnected = AuthService.getAuth();
 
 	const self = this;
