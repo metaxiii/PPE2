@@ -1,3 +1,4 @@
+<form layout-fill name="loginForm">
 <div>
 	<md-toolbar class="md-primary md-toolbar-tools" layout-align="space-around center" layout="row">
 		<a ui-sref="index.info"><img ng-src="{{$ctrl.m2l_logo}}" alt="logo"/></a>
@@ -13,25 +14,31 @@
  	<div id="login" layout="column" ng-if="!$ctrl.isConnected">
 	   <md-input-container>
 	        <label>Email</label>
-	        <input type="email"" ng-model="$ctrl.credentials.mail">
+	        <input type="email"" ng-model="$ctrl.credentials.mail" name="email" required>
+			<div ng-messages="loginForm.email.$error" ng-show="loginForm.email.$dirty">
+				<div ng-message="required">Champs requis</div>
+			</div>
 	      </md-input-container>
 		<md-input-container>
 	        <label>Mot de passe</label>
-	        <input type="password" ng-model="$ctrl.credentials.password">
+	        <input type="password" ng-model="$ctrl.credentials.password" name="password" required>
+			<div ng-messages="loginForm.password.$error" ng-show="loginForm.password.$dirty">
+				<div ng-message="required">Champs requis</div>
+			</div>
 
 	      </md-input-container>
 		  <div>
 			{{$ctrl.connexionError}}
 		  </div>
-		  <md-button class="md-primary md-hue-1" ng-click="$ctrl.connect()">Connection</md-button>
+		  <md-button class="md-raised md-primary" ng-click="$ctrl.connect()">Connection</md-button>
 		   <a ui-sref="index.register">Pas encore inscrit?</a>
 		</md-menu-content> 
 	</div>
 
 	
 	<div id="userMenu" ng-if="$ctrl.isConnected" layout="column">
-		<md-button class="md-primary md-hue-1" ui-sref="index.booking"> Réservation</md-button>
-		<md-button class="md-primary md-hue-1" ng-click="$ctrl.disconnect()"> Déconnection</md-button>
+		<md-button class="md-raised md-primary" ui-sref="index.booking"> Réservation</md-button>
+		<md-button class="md-raised md-primary" ng-click="$ctrl.disconnect()"> Déconnection</md-button>
 			
 	</div>
 		
@@ -40,3 +47,4 @@
 	</md-toolbar>
 	<div ui-view></div>
 </div>
+</form>
