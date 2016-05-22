@@ -2,9 +2,13 @@ import amphitheatre from './../../../img/amphi.jpg' ;
 import conviv from './../../../img/conviv.jpg' ; 
 import reunion from './../../../img/reunion.jpg' ; 
 
-export default ['BookingService', function(BookingService){
+export default ['BookingService', 'AuthService', '$state', 
+function(BookingService, AuthService, $state){
 	const self = this ;
 	
+	if(!AuthService.getAuth())
+		$state.go('index.info');
+		
 	const rooms = [
 		'amphitheater',
 		'meeting',
@@ -21,7 +25,6 @@ export default ['BookingService', function(BookingService){
 	};
 	
 	const bookARoom = function() {
-		console.log('ctrl')
 		//TODO: callback
 		BookingService.bookARoom({
 			room: self.room,
