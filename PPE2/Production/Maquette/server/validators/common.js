@@ -7,7 +7,9 @@ var isACallback = function(callback){
 }
 
 var prepareForDatabase = function(htmlInput){
-  return validator.escape(htmlInput.toString());
+  if(htmlInput)
+    return validator.escape(htmlInput.toString());
+  return null;
 }
 
 var prepareRoomMessage = function(message) {

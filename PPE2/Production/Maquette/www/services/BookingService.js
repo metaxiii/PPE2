@@ -20,8 +20,8 @@ export default ['ConnectivityService', '$q', function(ConnectivityService, $q) {
 					}
                     if(data.return) {
                         //TODO
-                        console.log('Return data from bookARoom: ');
-                        console.log(data.return);
+                        console.log('Room booked');
+                        resolve();
                     }
                 })
         });
