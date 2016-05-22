@@ -1,0 +1,18 @@
+[05/22/2016 18:08:16 GMT+2] [SERVER START] Server started successfully
+[05/22/2016 18:09:33 GMT+2] [REGISTER REQUEST] Request recieved, args: {"newUser":{"nickname":"Babar","name":"Babar","mail":"babar@gmail.com","password":"14f8eca72a4a0814d437983dbd2fe726cc765b49e465e81e67b78bac41c553ae","adress":{"street":"52 54651","zip":"54566","town":"65461565","country":"Great Britain"}}}
+[05/22/2016 18:09:33 GMT+2] [DATABASE VERIFICATIONS] Nickname Babar is not taken
+[05/22/2016 18:09:33 GMT+2] [DATABASE VERIFICATIONS] Mail babar@gmail.com is not taken
+[05/22/2016 18:09:33 GMT+2] [DATABASE REGISTER USER] User Babar added to database.
+[05/22/2016 18:09:33 GMT+2] [REGISTER REQUEST] Sending successful registration
+[05/22/2016 18:10:11 GMT+2] [LOGIN REQUEST] Request recieved, args: {"credentials":{"mail":"babar@gmail.com","password":"14f8eca72a4a0814d437983dbd2fe726cc765b49e465e81e67b78bac41c553ae"}}
+[05/22/2016 18:10:11 GMT+2] [LOGIN REQUEST] Sending successful login
+[05/22/2016 18:10:11 GMT+2] [DATABASE LOGIN] User undefined found in database
+[05/22/2016 18:10:59 GMT+2] [SERVER START] Server started successfully
+[05/22/2016 18:11:10 GMT+2] [LOGIN REQUEST] Request recieved, args: {"credentials":{"mail":"babar@gmail.com","password":"14f8eca72a4a0814d437983dbd2fe726cc765b49e465e81e67b78bac41c553ae"}}
+[05/22/2016 18:11:10 GMT+2] [LOGIN REQUEST] Sending successful login
+[05/22/2016 18:11:10 GMT+2] [DATABASE LOGIN] User Babar found in database
+[05/22/2016 18:12:24 GMT+2] [SERVER START] Server started successfully
+[05/22/2016 18:12:37 GMT+2] [LOGIN REQUEST] Request recieved, args: {"credentials":{"mail":"babar@gmail.com","password":"14f8eca72a4a0814d437983dbd2fe726cc765b49e465e81e67b78bac41c553ae"}}
+[05/22/2016 18:12:37 GMT+2] [LOGIN REQUEST] Sending successful login
+[05/22/2016 18:12:37 GMT+2] [DATABASE LOGIN] User Babar found in database
+[05/22/2016 18:28:37 GMT+2] [SERVER START] Server started successfully

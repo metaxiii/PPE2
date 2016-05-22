@@ -3,6 +3,9 @@ var mongoose = require('mongoose');
 var commonValid = require('./../validators/common');
 var validator = require('./../validators/user');
 
+var writelog = require('./../writelog').writelog;
+
+
 var User = mongoose.model('User', new mongoose.Schema({
   registerDate: { type: Date, default: Date.now },
   loginDate: { type: Date, default: Date.now },
@@ -19,6 +22,7 @@ var User = mongoose.model('User', new mongoose.Schema({
 }));
 
 var login = function(credentials, callback){
+  var TYPE = 'DATABASE LOGIN';
   validator.checkLogin(credentials, function(err){
     if(err) {
       if(commonValid.isACallback(callback)){
@@ -34,15 +38,18 @@ var login = function(credentials, callback){
             console.log(err);
             if(commonValid.isACallback(callback))
               callback('An error occured with the database');
+            writelog(res, TYPE);
           } else {
             if(commonValid.isACallback(callback)){
               if(results.length === 1){
                 callback(null, true);
+                writelog('User ' + results[0].nickname + ' found in database', TYPE);
               } else {
                 var fault = 'Invalid credentials';
                 
                 console.log(fault);
                 callback(fault);
+                writelog(fault, TYPE);
               }
             }
           }
@@ -52,6 +59,7 @@ var login = function(credentials, callback){
 };
 
 var registerUser = function(user, callback){
+  var TYPE = 'DATABASE REGISTER USER'
   validator.checkRegistration(user, function(err){
     if(err){
       if(commonValid.isACallback(callback)){
@@ -76,10 +84,15 @@ var registerUser = function(user, callback){
           console.log(err);
           if(commonValid.isACallback(callback))
             callback('Issue when saving new user to database.');
+          
+          writelog(err, TYPE);
         } else {
-          console.log('User ' + user.nickname + ' (' + user.mail + ') added to database.');
+          var log = 'User ' + user.nickname + ' added to database.'
+          console.log(log);
           if(commonValid.isACallback(callback))
             callback();
+          
+          writelog(log, TYPE);
         }
       })
     }
@@ -87,29 +100,36 @@ var registerUser = function(user, callback){
 };
 
 var nicknameTaken = function(nickname, callback) {
+  var TYPE = 'DATABASE VERIFICATIONS'
   User.find({ nickname: nickname }, function(err, results){
     if(err){
       console.log(err);
       if(commonValid.isACallback(callback)){
         callback(err);
       }
+      writelog(err, TYPE);
     } else {
       if(commonValid.isACallback(callback))
         callback(null, results.length === 1);
+      writelog('Nickname ' + nickname + ' is not taken', TYPE);
     }
   })
 };
 
 var mailTaken = function(mail, callback) {
+  var TYPE = 'DATABASE VERIFICATIONS'
   User.find({ mail: mail }, function(err, results){
     if(err){
       console.log(err);
       if(commonValid.isACallback(callback)){
         callback(err);
       }
+      writelog(err, TYPE);
     } else {
       if(commonValid.isACallback(callback))
         callback(null, results.length === 1);
+      
+      writelog('Mail ' + mail + ' is not taken', TYPE);
     }
   })
 };
