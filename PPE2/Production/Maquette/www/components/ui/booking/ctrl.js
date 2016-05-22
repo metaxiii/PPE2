@@ -16,6 +16,10 @@ export default ['BookingService', function(BookingService){
 		console.log(room);
 	};
 	
+	const setRoom = function(room) {
+	self.room = room;
+	};
+	
 	const bookARoom = function() {
 		console.log('ctrl')
 		//TODO: callback
@@ -24,7 +28,7 @@ export default ['BookingService', function(BookingService){
 			bookingDate: self.bookingDate
 		})
 	};
-	
+	self.setRoom = setRoom;
 	self.bookARoom = bookARoom;
 	self.getBookingDateByRoom = getBookingDateByRoom;
 	self.rooms = rooms;

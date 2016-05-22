@@ -4,57 +4,57 @@
 	<div layout="row" layout-align="start center" flex />
 		<md-input-container flex="50">
 			<label>Nom d'utilisateur</label>
-			<input type="text" ng-model="$ctrl.user.nickname">
+			<input type="text" ng-model="$ctrl.user.nickname" md-maxlength="50" required>
 		</md-input-container>
    </div>
    <div layout="row" layout-align="start center" flex>
 		<md-input-container flex="50">
 				<label>Nom</label>
-			<input type="text" ng-model="$ctrl.user.name">
+			<input type="text" ng-model="$ctrl.user.name" md-maxlength="50" required>
 		</md-input-container>
    </div>
 	<div layout="row" layout-align="center start" flex>
 		<md-input-container flex="50">
 				<label>Adresse email</label>
-			<input type="email" ng-model="$ctrl.user.mail"> 
+			<input type="email" ng-model="$ctrl.user.mail" md-maxlength="100" required> 
 		</md-input-container>
 		
 		<md-input-container flex="50">
 				<label>Confirmez l'adresse email</label>
-			<input type="email" ng-model="$ctrl.mailVerif"> 
+			<input type="email" ng-model="$ctrl.mailVerif" md-maxlength="100" required> 
 		</md-input-container>
 	</div>
 	<div layout="row" layout-align="center start" flex>
 		<md-input-container flex="50">
 				<label>Mot de passe</label>
-			<input type="password" ng-model="$ctrl.user.password">
+			<input type="password" ng-model="$ctrl.user.password" minlength="6" md-maxlength="30" required>
 		</md-input-container>
 	
 		<md-input-container flex="50">
 				<label>Confirmer le mot de passe</label>
-			<input type="password" ng-model="$ctrl.passwordVerif">
+			<input type="password" ng-model="$ctrl.passwordVerif" minlength="6" md-maxlength="30" required>
 		</md-input-container>
 	</div>
 	<div layout="row" layout-align="center start" flex>
 		<md-input-container flex="33">
 				<label>Numéro</label>
-			<input type="text" ng-model="$ctrl.streetNumber">
+			<input type="text" ng-model="$ctrl.streetNumber" md-maxlength="10" required>
 		</md-input-container>
 		
 		<md-input-container flex="66">
 				<label>Nom de la rue</label>
-			<input type="text" ng-model="$ctrl.streetName">
+			<input type="text" ng-model="$ctrl.streetName" md-maxlength="250" required>
 		</md-input-container>
 	</div>
 	<div layout="row" layout-align="center start" flex>
 		<md-input-container flex="50">
 				<label>Ville</label>
-			<input type="text" ng-model="$ctrl.user.adress.town">
+			<input type="text" ng-model="$ctrl.user.adress.town" md-maxlength="50" required>
 		</md-input-container>
 		
 		<md-input-container flex="50">
 			<label>Code postal</label>
-			<input type="text" ng-model="$ctrl.user.adress.zip">
+			<input type="text" ng-model="$ctrl.user.adress.zip" md-maxlength="5" required>
 		</md-input-container>
 	</div>
 	
