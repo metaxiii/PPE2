@@ -53,6 +53,7 @@ export default ['ConnectivityService', '$q', (ConnectivityService, $q) => {
 				}
 				if(data.return === true){
 					console.log('User registered');
+					isAuth = true;
 					resolve();
 					return;
 				}

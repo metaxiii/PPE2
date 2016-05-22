@@ -1,6 +1,6 @@
 import sha256 from 'crypto-js/sha256';
 
-export default ['AuthService', function(AuthService){
+export default ['AuthService', '$state', function(AuthService, $state){
   const self = this;
   
   if(AuthService.getAuth())
@@ -25,7 +25,7 @@ export default ['AuthService', function(AuthService){
     
     AuthService.registerUser(newUser)
       .then(function(){
-        // TODO: set connected and redirect to login
+        $state.go('index.booking');
       }, function(err){
         self.registerError = err;
       });

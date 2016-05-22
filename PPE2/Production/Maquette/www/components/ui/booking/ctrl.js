@@ -7,7 +7,7 @@ function(BookingService, AuthService, $state){
 	const self = this ;
 	
 	if(!AuthService.getAuth())
-		$state.go('index.info');
+		$state.go('index.register');
 		
 	const rooms = [
 		'amphitheater',
