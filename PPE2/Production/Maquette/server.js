@@ -14,7 +14,7 @@ var User = require('./server/db/user');
 var Booking = require('./server/db/booking');
 
 // Used for production build
-// app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(bodyParser.json());
 
@@ -27,7 +27,7 @@ app.post('/login', function(req, res){
            res.send({fault: err});
            writelog(err + ' send to FE', TYPE);
        } else {
-           console.log('User ' + req.body.credentials.nickname + ' logged in.')
+           console.log('User ' + req.body.credentials.mail + ' logged in.')
            res.send({return: true});
            writelog('Sending successful login', TYPE);
        }

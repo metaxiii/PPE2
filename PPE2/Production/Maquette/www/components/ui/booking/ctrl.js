@@ -13,7 +13,7 @@ function(BookingService, AuthService, $state){
 		'amphitheater',
 		'meeting',
 		'friendly'
-	]
+	];
 	
 	const getBookingDateByRoom = function(room) {
 		//TODO
@@ -21,11 +21,11 @@ function(BookingService, AuthService, $state){
 	};
 	
 	const setRoom = function(room) {
-	self.room = room;
+		self.room = room;
 	};
 	
 	const bookARoom = function() {
-		//TODO: callback
+		//TODO: callback and parse Date
 		BookingService.bookARoom({
 			room: self.room,
 			bookingDate: self.bookingDate

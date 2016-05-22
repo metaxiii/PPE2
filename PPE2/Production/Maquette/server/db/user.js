@@ -111,7 +111,11 @@ var nicknameTaken = function(nickname, callback) {
     } else {
       if(commonValid.isACallback(callback))
         callback(null, results.length === 1);
-      writelog('Nickname ' + nickname + ' is not taken', TYPE);
+      if(results.length === 1) {
+        writelog('Nickname ' + nickname + ' is already taken', TYPE);
+      } else {
+        writelog('Nickname ' + nickname + ' is not taken', TYPE);
+      }
     }
   })
 };
@@ -128,8 +132,11 @@ var mailTaken = function(mail, callback) {
     } else {
       if(commonValid.isACallback(callback))
         callback(null, results.length === 1);
-      
-      writelog('Mail ' + mail + ' is not taken', TYPE);
+      if(results.length === 1) {
+        writelog('Nickname ' + nickname + ' is already taken', TYPE);
+      } else {
+        writelog('Nickname ' + nickname + ' is not taken', TYPE);
+      }
     }
   })
 };

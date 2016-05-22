@@ -208,11 +208,10 @@ module.exports.checkRegistration = function(user, callback){
     User.nicknameTaken(user.nickname, function(err, results){
       if(err){
         console.log(err);
-        if(commonValid.isACallback(callback)){
+        if(commonValid.isACallback(callback))
           callback(err);
         
-          writelog(err, TYPE);
-        }
+        writelog(err, TYPE);
       } else {
         if(results === true){
           console.log('Nickname is already taken')
