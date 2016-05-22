@@ -50,6 +50,17 @@ app.get('/roomBooking', function(req, res) {
    }); 
 });
 
+// Book a room
+app.post('/roomBooking', function(req, res){
+    Booking.bookARoom(req.body.book, function(err, result) {
+        if(err) {
+            res.send({fault: err});
+        } else {
+            res.send({return: true});
+        }
+    })
+})
+
 app.all('*', function(req, res){
     res.send('' +
     '<!DOCTYPE html>' +
