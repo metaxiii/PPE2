@@ -3,16 +3,17 @@ var mongoose = require('mongoose');
 var commonValid = require('./../validators/common');
 var validator = require('./../validators/booking');
 
-var writelog = require('./../writelog').writelog;
+var writelog = require('./../common/writelog').writelog;
 
 var Booking = mongoose.model('Booking', new mongoose.Schema({
   registerDate: { type: Date, default: Date.now },
   room: { type: String, required: true },
   bookingDate: { type: String, required: true, unique: true },
-  user: { type: String }
+  user: { type: String, required: true }
 }));
 
 var getBookingByRoom = function(room, callback) {
+  // Not used
   var TYPE = 'DATABASE GETBOOKINGBYROOM'
   validator.checkRoom(room, function(err){
     if(err) {
@@ -40,29 +41,29 @@ var bookARoom = function(book, callback){
   var TYPE = 'DATABASE BOOKING';
     validator.checkBooking(book, function(err){
       if(err) {
-      if(commonValid.isACallback(callback)){
-        callback(err);
-      }
-    } else {
-      var booking = new Booking({
-        room: commonValid.prepareForDatabase(book.room),
-        bookingDate: commonValid.prepareForDatabase(book.bookingDate),
-        user: commonValid.prepareForDatabase(book.user)
-      });
-      
-      booking.save(function(err){
-        if(err){
-          console.log(err);
-          if(commonValid.isACallback(callback))
-            callback('Issue when saving new booking to database.');
-          writelog(err, TYPE);
-        } else {
-          console.log('New booking added to database');
-          if(commonValid.isACallback(callback))
-            callback();
+        if(commonValid.isACallback(callback)){
+          callback(err);
         }
-      });
-    }
+      } else {
+        var booking = new Booking({
+          room: commonValid.prepareForDatabase(book.room),
+          bookingDate: commonValid.prepareForDatabase(book.bookingDate),
+          user: commonValid.prepareForDatabase(book.user)
+        });
+        
+        booking.save(function(err){
+          if(err){
+            console.log(err);
+            if(commonValid.isACallback(callback))
+              callback('Issue when saving new booking to database.');
+            writelog(err, TYPE);
+          } else {
+            console.log('New booking added to database');
+            if(commonValid.isACallback(callback))
+              callback();
+          }
+        });
+      }
     });
 };
 

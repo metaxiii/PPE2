@@ -1,5 +1,5 @@
 export default ['ConnectivityService', '$q', (ConnectivityService, $q) => {
-	let isAuth = false;
+	let auth = false;
 
 	const connect = (credentials) => {
 		return $q((resolve, reject) => {
@@ -17,10 +17,10 @@ export default ['ConnectivityService', '$q', (ConnectivityService, $q) => {
 						reject(data.fault);
 						return;
 					}
-					if(data.return === true){
+					if(data.return !== false){
 						console.log('Logged in');
+						auth = credentials.mail;
 						resolve();
-						isAuth = true;
 						return;
 					}
 				})
@@ -28,11 +28,11 @@ export default ['ConnectivityService', '$q', (ConnectivityService, $q) => {
 	};
 
 	const disconnect = () => {
-		isAuth = false;
+		auth = false;
 	};
 
 	const getAuth = () => {
-		return isAuth;
+		return auth !== false;
 	};
 	
 	const registerUser = user => {
@@ -53,18 +53,23 @@ export default ['ConnectivityService', '$q', (ConnectivityService, $q) => {
 				}
 				if(data.return === true){
 					console.log('User registered');
-					isAuth = true;
+					auth = true;
 					resolve();
 					return;
 				}
 			})
 		});
-	}
+	};
+	
+	const getUser = () => {
+		return auth;	
+	};
 
 	return {
 		connect: connect,
 		disconnect: disconnect,
 		getAuth: getAuth,
-		registerUser: registerUser
+		registerUser: registerUser,
+		getUser: getUser
 	};
 }];

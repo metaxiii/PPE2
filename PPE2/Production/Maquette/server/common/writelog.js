@@ -22,7 +22,7 @@ var writelog = function(message, type){
           (timeZone > 0 ? '+':'-') + timeZone + 
         ']';
   
-  fs.appendFile('server/server.log', now + ' ' + type + ' ' + message + "\r\n", function(err){
+  fs.appendFile('server/logs/server.log', now + ' ' + type + ' ' + message + "\r\n", function(err){
     if(err){
       console.log(err);
       return;

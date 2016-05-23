@@ -6,9 +6,9 @@ import ngMessage from 'angular-messages';
 
 import roomFilter from './filters/roomFilter';
 
-import AuthService from './services/AuthService';
-import BookingService from './services/BookingService';
-import ConnectivityService from './services/ConnectivityService';
+import AuthService from './components/services/AuthService';
+import BookingService from './components/services/BookingService';
+import ConnectivityService from './components/services/ConnectivityService';
 
 import indexComp from './components/ui/index/index';
 import infoComp from './components/ui/info/info';

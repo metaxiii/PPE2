@@ -3,7 +3,7 @@ var mongoose = require('mongoose');
 var commonValid = require('./../validators/common');
 var validator = require('./../validators/user');
 
-var writelog = require('./../writelog').writelog;
+var writelog = require('./../common/writelog').writelog;
 
 
 var User = mongoose.model('User', new mongoose.Schema({

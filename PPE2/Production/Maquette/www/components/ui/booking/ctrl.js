@@ -27,7 +27,8 @@ function(BookingService, AuthService, $state){
 		self.result = '';
 		BookingService.bookARoom({
 			room: self.room,
-			bookingDate: self.bookingDate
+			bookingDate: self.bookingDate,
+			user: AuthService.getUser()
 		})
 			.then(() => {
 				self.result = 'Salle réservée !';

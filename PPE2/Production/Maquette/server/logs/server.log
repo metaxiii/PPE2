@@ -1,0 +1,63 @@
+[05/23/2016 21:02:34 GMT+2] [SERVER START] Server started successfully
+[05/23/2016 21:04:43 GMT+2] [SERVER START] Server started successfully
+[05/23/2016 21:04:45 GMT+2] [REGISTER REQUEST] Request recieved, args: {"newUser":{"nickname":"greazerg@gre.gr","name":"greazerg@gre.gr","mail":"greazerg@gre.gr","password":"773b9181a2a8c13e3ad8628fbf1bdf0d813970145e7c4fc4a6db89a5b013e39f","adress":{"street":"564 greazerg@gre.gr","zip":"564","town":"greazerg@gre.gr","country":"France"}}}
+[05/23/2016 21:05:58 GMT+2] [SERVER START] Server started successfully
+[05/23/2016 21:06:02 GMT+2] [REGISTER REQUEST] Request recieved, args: {"newUser":{"nickname":"greazerg@gre.gr","name":"greazerg@gre.gr","mail":"greazerg@gre.gr","password":"773b9181a2a8c13e3ad8628fbf1bdf0d813970145e7c4fc4a6db89a5b013e39f","adress":{"street":"564 greazerg@gre.gr","zip":"564","town":"greazerg@gre.gr","country":"France"}}}
+[05/23/2016 21:06:02 GMT+2] [DATABASE VERIFICATIONS] Nickname greazerg@gre.gr is not taken
+[05/23/2016 21:06:02 GMT+2] [DATABASE VERIFICATIONS] Mail greazerg@gre.gr is not taken
+[05/23/2016 21:06:02 GMT+2] [REGISTER REQUEST] Sending successful registration
+[05/23/2016 21:06:02 GMT+2] [DATABASE REGISTER USER] User greazerg@gre.gr added to database.
+[05/23/2016 21:06:10 GMT+2] [SET BOOKING REQUEST] Request recieved, args: {"book":{"room":"friendly","bookingDate":"Wed May 25 2016"}}
+[05/23/2016 21:06:10 GMT+2] [DATABASE VERIFICATIONS] Booking available for this date/room
+[05/23/2016 21:06:10 GMT+2] [SET BOOKING REQUEST] Sending successful booking
+[05/23/2016 21:06:13 GMT+2] [SET BOOKING REQUEST] Request recieved, args: {"book":{"room":"friendly","bookingDate":"Wed May 25 2016"}}
+[05/23/2016 21:06:13 GMT+2] [DATABASE VERIFICATIONS] Booking is not available for this date/room
+[05/23/2016 21:06:13 GMT+2] [SET BOOKING REQUEST] This combination of room/date is already taken send to FE
+[05/23/2016 21:08:40 GMT+2] [SERVER START] Server started successfully
+[05/23/2016 21:08:43 GMT+2] [SET BOOKING REQUEST] Request recieved, args: {"book":{"room":"friendly","bookingDate":"Wed May 25 2016"}}
+[05/23/2016 21:08:43 GMT+2] [SET BOOKING REQUEST] No user field in booking object send to FE
+[05/23/2016 21:08:43 GMT+2] [BOOKING VERIFICATIONS] No user field in booking object
+[05/23/2016 21:11:30 GMT+2] [LOGIN REQUEST] Request recieved, args: {"credentials":{"mail":"aze@aze.aze","password":"aa8dc17ac6c66d0d5b11e10794638db0f9f97dfbb9526e2d575ad9edee93347e"}}
+[05/23/2016 21:11:30 GMT+2] [LOGIN REQUEST] Sending successful login
+[05/23/2016 21:11:30 GMT+2] [DATABASE LOGIN] User aze@aze.aze found in database
+[05/23/2016 21:11:35 GMT+2] [SET BOOKING REQUEST] Request recieved, args: {"book":{"room":"meeting","bookingDate":"Tue May 24 2016"}}
+[05/23/2016 21:11:35 GMT+2] [SET BOOKING REQUEST] No user field in booking object send to FE
+[05/23/2016 21:11:35 GMT+2] [BOOKING VERIFICATIONS] No user field in booking object
+[05/23/2016 21:12:08 GMT+2] [LOGIN REQUEST] Request recieved, args: {"credentials":{"mail":"aze@aze.aze","password":"aa8dc17ac6c66d0d5b11e10794638db0f9f97dfbb9526e2d575ad9edee93347e"}}
+[05/23/2016 21:12:08 GMT+2] [LOGIN REQUEST] Sending successful login
+[05/23/2016 21:12:08 GMT+2] [DATABASE LOGIN] User aze@aze.aze found in database
+[05/23/2016 21:12:44 GMT+2] [LOGIN REQUEST] Request recieved, args: {"credentials":{"mail":"aze@aze.aze","password":"aa8dc17ac6c66d0d5b11e10794638db0f9f97dfbb9526e2d575ad9edee93347e"}}
+[05/23/2016 21:12:44 GMT+2] [LOGIN REQUEST] Sending successful login
+[05/23/2016 21:12:44 GMT+2] [DATABASE LOGIN] User aze@aze.aze found in database
+[05/23/2016 21:12:49 GMT+2] [SET BOOKING REQUEST] Request recieved, args: {"book":{"room":"friendly","bookingDate":"Wed May 25 2016"}}
+[05/23/2016 21:12:49 GMT+2] [SET BOOKING REQUEST] No user field in booking object send to FE
+[05/23/2016 21:12:49 GMT+2] [BOOKING VERIFICATIONS] No user field in booking object
+[05/23/2016 21:15:01 GMT+2] [LOGIN REQUEST] Request recieved, args: {"credentials":{"mail":"babar@gmail.com","password":"14f8eca72a4a0814d437983dbd2fe726cc765b49e465e81e67b78bac41c553ae"}}
+[05/23/2016 21:15:01 GMT+2] [LOGIN REQUEST] Sending successful login
+[05/23/2016 21:15:01 GMT+2] [DATABASE LOGIN] User Babar found in database
+[05/23/2016 21:15:06 GMT+2] [SET BOOKING REQUEST] Request recieved, args: {"book":{"room":"friendly","bookingDate":"Thu May 26 2016"}}
+[05/23/2016 21:15:06 GMT+2] [BOOKING VERIFICATIONS] No user field in booking object
+[05/23/2016 21:15:06 GMT+2] [SET BOOKING REQUEST] No user field in booking object send to FE
+[05/23/2016 21:15:58 GMT+2] [LOGIN REQUEST] Request recieved, args: {"credentials":{"mail":"babar@gmail.com","password":"14f8eca72a4a0814d437983dbd2fe726cc765b49e465e81e67b78bac41c553ae"}}
+[05/23/2016 21:15:58 GMT+2] [DATABASE LOGIN] User Babar found in database
+[05/23/2016 21:15:58 GMT+2] [LOGIN REQUEST] Sending successful login
+[05/23/2016 21:16:21 GMT+2] [LOGIN REQUEST] Request recieved, args: {"credentials":{"mail":"babar@gmail.com","password":"14f8eca72a4a0814d437983dbd2fe726cc765b49e465e81e67b78bac41c553ae"}}
+[05/23/2016 21:16:21 GMT+2] [LOGIN REQUEST] Sending successful login
+[05/23/2016 21:16:21 GMT+2] [DATABASE LOGIN] User Babar found in database
+[05/23/2016 21:19:53 GMT+2] [SERVER START] Server started successfully
+[05/23/2016 21:20:00 GMT+2] [LOGIN REQUEST] Request recieved, args: {"credentials":{"mail":"babar@gmail.com","password":"14f8eca72a4a0814d437983dbd2fe726cc765b49e465e81e67b78bac41c553ae"}}
+[05/23/2016 21:20:00 GMT+2] [LOGIN REQUEST] Babar send to FE
+[05/23/2016 21:20:00 GMT+2] [DATABASE LOGIN] User Babar found in database
+[05/23/2016 21:20:28 GMT+2] [LOGIN REQUEST] Request recieved, args: {"credentials":{"mail":"babar@gmail.com","password":"14f8eca72a4a0814d437983dbd2fe726cc765b49e465e81e67b78bac41c553ae"}}
+[05/23/2016 21:20:28 GMT+2] [LOGIN REQUEST] Babar send to FE
+[05/23/2016 21:20:28 GMT+2] [DATABASE LOGIN] User Babar found in database
+[05/23/2016 21:22:38 GMT+2] [SERVER START] Server started successfully
+[05/23/2016 21:22:47 GMT+2] [LOGIN REQUEST] Request recieved, args: {"credentials":{"mail":"babar@gmail.com","password":"14f8eca72a4a0814d437983dbd2fe726cc765b49e465e81e67b78bac41c553ae"}}
+[05/23/2016 21:22:47 GMT+2] [LOGIN REQUEST] Sending successful login
+[05/23/2016 21:22:47 GMT+2] [DATABASE LOGIN] User Babar found in database
+[05/23/2016 21:22:55 GMT+2] [SET BOOKING REQUEST] Request recieved, args: {"book":{"room":"friendly","bookingDate":"Thu May 26 2016","user":"babar@gmail.com"}}
+[05/23/2016 21:22:55 GMT+2] [DATABASE VERIFICATIONS] Booking available for this date/room
+[05/23/2016 21:22:55 GMT+2] [SET BOOKING REQUEST] Sending successful booking
+[05/23/2016 21:22:59 GMT+2] [SET BOOKING REQUEST] Request recieved, args: {"book":{"room":"friendly","bookingDate":"Thu May 26 2016","user":"babar@gmail.com"}}
+[05/23/2016 21:22:59 GMT+2] [SET BOOKING REQUEST] This combination of room/date is already taken send to FE
+[05/23/2016 21:22:59 GMT+2] [DATABASE VERIFICATIONS] Booking is not available for this date/room

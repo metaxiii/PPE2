@@ -1,22 +1,10 @@
 var validator = require('validator');
 var commonValid = require('./common');
 var User = require('./../db/user');
-var writelog = require('./../writelog').writelog;
+var writelog = require('./../common/writelog').writelog;
 
 // TODO: factorize
-var config = {
-  size_limit: {
-    NICKNAME: 50,
-    NAME: 50,
-    MAIL: 100,
-    adress: {
-      STREET: 250,
-      ZIP: 5,
-      TOWN: 50,
-      COUNTRY: 50
-    }
-  }
-}
+var config = require('./../common/config').config;
 
 module.exports.checkRegistration = function(user, callback){
   var TYPE = 'NEW USER VALIDATIONS';

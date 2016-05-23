@@ -4,9 +4,8 @@ export default ['ConnectivityService', '$q', function(ConnectivityService, $q) {
     const bookARoom = (booking) => {
         return $q((resolve, reject) => {
             // Parsing date
-            console.log(booking.bookingDate);
             booking.bookingDate = booking.bookingDate.toDateString();
-            console.log(booking.bookingDate);
+            
             ConnectivityService.bookARoom(booking)
                 .then(rawData => {
                     let data = rawData.data;
