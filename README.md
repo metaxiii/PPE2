@@ -6,7 +6,7 @@ Le projet nécessite le téléchargement et l'installation de [Node](https://nod
 
 1. En commande, se rendre dans le dossier `PPE2\Production\Maquette` du projet
 2. Executer `npm install`
-3. En commande, se rendre dans le dossier d'installation de mongoDB (par windows, le chemin par défaut est `C:\Program Files\MongoDB\Server\3.2\bin`)
+3. En commande, se rendre dans le dossier d'installation de mongoDB (pour windows, le chemin par défaut est `C:\Program Files\MongoDB\Server\3.2\bin`)
 4. Executer `mongod`, ceci lance la base de donnée
 
 ## Lancer le projet
