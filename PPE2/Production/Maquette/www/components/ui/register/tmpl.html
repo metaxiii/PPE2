@@ -1,122 +1,122 @@
 <div class="register" layout="row" layout-align=" center center">
 	<div class="text-body" flex="50" layout= "column">
 	
-	<form layout-fill name="registrationForm">
-	<div layout="row" layout-align="start center" flex >
-		<md-input-container flex="50">
-			<label>Nom d'utilisateur</label>
-			<input type="text" ng-model="$ctrl.user.nickname" name="nickname" md-maxlength="50" required>
-			<div ng-messages="registrationForm.nickname.$error" ng-show="registrationForm.nickname.$dirty">
-				<div ng-message="required">Champs requis</div>
-				<div ng-message="md-maxlength">trop de caractères</div>
-			</div>
-		</md-input-container>
-   </div>
-   <div layout="row" layout-align="start center" flex>
-		<md-input-container flex="50">
-				<label>Nom</label>
-			<input type="text" ng-model="$ctrl.user.name" name="userName" md-maxlength="50" required>
-			<div ng-messages="registrationForm.userName.$error" ng-show="registrationForm.userName.$dirty">
-				<div ng-message="required">Champs requis</div>
-				<div ng-message="md-maxlength">trop de caractères</div>
-			</div>
-		</md-input-container>
-   </div>
-	<div layout="row" layout-align="center start" flex>
-		<md-input-container flex="50">
-				<label>Adresse email</label>
-			<input type="email" ng-model="$ctrl.user.mail" name="userMail" md-maxlength="100" required>
-			<div ng-messages="registrationForm.userMail.$error" ng-show="registrationForm.userMail.$dirty">
-				<div ng-message="required">Champs requis</div>
-				<div ng-message="md-maxlength">Trop de caractères</div>
-			</div>
-		</md-input-container>
-		
-		<md-input-container flex="50">
-				<label>Confirmez l'adresse email</label>
-			<input type="email" ng-model="$ctrl.mailVerif" name="mailVerif" md-maxlength="100" required>
-			<div ng-messages="registrationForm.mailVerif.$error" ng-show="registrationForm.mailVerif.$dirty">
-				<div ng-message="required">Champs requis</div>
-				<div ng-message="md-maxlength">Trop de caractères</div>
-			</div>
-		</md-input-container>
+	<form layout-fill name="registrationForm" ng-submit="$ctrl.register()" >
+		<div layout="row" layout-align="start center" flex >
+			<md-input-container flex="50">
+				<label>Nom d'utilisateur</label>
+				<input type="text" ng-model="$ctrl.user.nickname" name="nickname" md-maxlength="50" required>
+				<div ng-messages="registrationForm.nickname.$error" ng-show="registrationForm.nickname.$dirty">
+					<div ng-message="required">Champs requis</div>
+					<div ng-message="md-maxlength">trop de caractères</div>
+				</div>
+			</md-input-container>
 	</div>
-	<div layout="row" layout-align="center start" flex>
-		<md-input-container flex="50">
-				<label>Mot de passe</label>
-			<input type="password" ng-model="$ctrl.user.password" name="userPassword" minlength="6" md-maxlength="30" required>
-			<div ng-messages="registrationForm.userPassword.$error" ng-show="registrationForm.userPassword.$dirty">
-				<div ng-message="required">Champs requis</div>
-				<div ng-message="md-maxlength">Trop de caractères</div>
-				<div ng-message="minlength">Pas assez de caractères</div>
-			</div>
-		</md-input-container>
-	
-		<md-input-container flex="50">
-				<label>Confirmer le mot de passe</label>
-			<input type="password" ng-model="$ctrl.passwordVerif" name="passwordVerif" minlength="6" md-maxlength="30" required>
-			<div ng-messages="registrationForm.passwordVerif.$error" ng-show="registrationForm.passwordVerif.$dirty">
-				<div ng-message="required">Champs requis</div>
-				<div ng-message="md-maxlength">Trop de caractères</div>
-				<div ng-message="minlength">Pas assez de caractères</div>
-			</div>
-		</md-input-container>
+	<div layout="row" layout-align="start center" flex>
+			<md-input-container flex="50">
+					<label>Nom</label>
+				<input type="text" ng-model="$ctrl.user.name" name="userName" md-maxlength="50" required>
+				<div ng-messages="registrationForm.userName.$error" ng-show="registrationForm.userName.$dirty">
+					<div ng-message="required">Champs requis</div>
+					<div ng-message="md-maxlength">trop de caractères</div>
+				</div>
+			</md-input-container>
 	</div>
-	<div layout="row" layout-align="center start" flex>
-		<md-input-container flex="33">
-				<label>Numéro</label>
-			<input type="text" ng-model="$ctrl.streetNumber" name="streetNumber" md-maxlength="10" required>
-			<div ng-messages="registrationForm.streetNumber.$error" ng-show="registrationForm.streetNumber.$dirty">
-				<div ng-message="required">Champs requis</div>
-				<div ng-message="md-maxlength">Trop de caractères</div>
-			</div>
-		</md-input-container>
-		
-		<md-input-container flex="66">
-				<label>Nom de la rue</label>
-			<input type="text" ng-model="$ctrl.streetName" name="streetName" md-maxlength="250" required>
-			<div ng-messages="registrationForm.streetName.$error" ng-show="registrationForm.streetName.$dirty">
-				<div ng-message="required">Champs requis</div>
-				<div ng-message="md-maxlength">Trop de caractères</div>
-			</div>
-		</md-input-container>
-	</div>
-	<div layout="row" layout-align="center start" flex>
-		<md-input-container flex="50">
-				<label>Ville</label>
-			<input type="text" ng-model="$ctrl.user.adress.town" name="userAdressTown" md-maxlength="50" required>
-			<div ng-messages="registrationForm.userAdressTown.$error" ng-show="registrationForm.userAdressTown.$dirty">
-				<div ng-message="required">Champs requis</div>
-				<div ng-message="md-maxlength">trop de caractères</div>
-			</div>
-		</md-input-container>
-		
-		<md-input-container flex="50">
-			<label>Code postal</label>
-			<input type="text" ng-model="$ctrl.user.adress.zip" name="userAdressZip" md-maxlength="5" required  ng-pattern="/[0-9]+/" placeholder="12345">
-			<div ng-messages="registrationForm.userAdressZip.$error" ng-show="registrationForm.userAdressZip.$dirty">
-				<div ng-message="required">Champs requis</div>
-				<div ng-message="md-maxlength">trop de caractères</div>
-				<div ng-message="pattern">Chiffres uniquement</div>
-			</div>
-		</md-input-container>
-	</div>
-	
-		<md-input-container flex="50">
-			<label>Pays</label>
-			<md-select ng-model="$ctrl.user.adress.country">
-				 <md-option ng-repeat="country in $ctrl.countries" value="{{country}}">
-				   {{country}}
-				 </md-option>
-			</md-select>
-		</md-input-container>
-		
-		<div class="error">
-			{{$ctrl.registerError}}
+		<div layout="row" layout-align="center start" flex>
+			<md-input-container flex="50">
+					<label>Adresse email</label>
+				<input type="email" ng-model="$ctrl.user.mail" name="userMail" md-maxlength="100" required>
+				<div ng-messages="registrationForm.userMail.$error" ng-show="registrationForm.userMail.$dirty">
+					<div ng-message="required">Champs requis</div>
+					<div ng-message="md-maxlength">Trop de caractères</div>
+				</div>
+			</md-input-container>
+			
+			<md-input-container flex="50">
+					<label>Confirmez l'adresse email</label>
+				<input type="email" ng-model="$ctrl.mailVerif" name="mailVerif" md-maxlength="100" required>
+				<div ng-messages="registrationForm.mailVerif.$error" ng-show="registrationForm.mailVerif.$dirty">
+					<div ng-message="required">Champs requis</div>
+					<div ng-message="md-maxlength">Trop de caractères</div>
+				</div>
+			</md-input-container>
 		</div>
-		<div layout="row" layout-align="center start" class="inline-button">
-			<md-button class="md-raised md-primary" ng-click="$ctrl.register()">S'inscrire</md-button>
+		<div layout="row" layout-align="center start" flex>
+			<md-input-container flex="50">
+					<label>Mot de passe</label>
+				<input type="password" ng-model="$ctrl.user.password" name="userPassword" minlength="6" md-maxlength="30" required>
+				<div ng-messages="registrationForm.userPassword.$error" ng-show="registrationForm.userPassword.$dirty">
+					<div ng-message="required">Champs requis</div>
+					<div ng-message="md-maxlength">Trop de caractères</div>
+					<div ng-message="minlength">Pas assez de caractères</div>
+				</div>
+			</md-input-container>
+		
+			<md-input-container flex="50">
+					<label>Confirmer le mot de passe</label>
+				<input type="password" ng-model="$ctrl.passwordVerif" name="passwordVerif" minlength="6" md-maxlength="30" required>
+				<div ng-messages="registrationForm.passwordVerif.$error" ng-show="registrationForm.passwordVerif.$dirty">
+					<div ng-message="required">Champs requis</div>
+					<div ng-message="md-maxlength">Trop de caractères</div>
+					<div ng-message="minlength">Pas assez de caractères</div>
+				</div>
+			</md-input-container>
 		</div>
+		<div layout="row" layout-align="center start" flex>
+			<md-input-container flex="33">
+					<label>Numéro</label>
+				<input type="text" ng-model="$ctrl.streetNumber" name="streetNumber" md-maxlength="10" required>
+				<div ng-messages="registrationForm.streetNumber.$error" ng-show="registrationForm.streetNumber.$dirty">
+					<div ng-message="required">Champs requis</div>
+					<div ng-message="md-maxlength">Trop de caractères</div>
+				</div>
+			</md-input-container>
+			
+			<md-input-container flex="66">
+					<label>Nom de la rue</label>
+				<input type="text" ng-model="$ctrl.streetName" name="streetName" md-maxlength="250" required>
+				<div ng-messages="registrationForm.streetName.$error" ng-show="registrationForm.streetName.$dirty">
+					<div ng-message="required">Champs requis</div>
+					<div ng-message="md-maxlength">Trop de caractères</div>
+				</div>
+			</md-input-container>
+		</div>
+		<div layout="row" layout-align="center start" flex>
+			<md-input-container flex="50">
+					<label>Ville</label>
+				<input type="text" ng-model="$ctrl.user.adress.town" name="userAdressTown" md-maxlength="50" required>
+				<div ng-messages="registrationForm.userAdressTown.$error" ng-show="registrationForm.userAdressTown.$dirty">
+					<div ng-message="required">Champs requis</div>
+					<div ng-message="md-maxlength">trop de caractères</div>
+				</div>
+			</md-input-container>
+			
+			<md-input-container flex="50">
+				<label>Code postal</label>
+				<input type="text" ng-model="$ctrl.user.adress.zip" name="userAdressZip" md-maxlength="5" required  ng-pattern="/[0-9]+/" placeholder="12345">
+				<div ng-messages="registrationForm.userAdressZip.$error" ng-show="registrationForm.userAdressZip.$dirty">
+					<div ng-message="required">Champs requis</div>
+					<div ng-message="md-maxlength">trop de caractères</div>
+					<div ng-message="pattern">Chiffres uniquement</div>
+				</div>
+			</md-input-container>
+		</div>
+		
+			<md-input-container flex="50">
+				<label>Pays</label>
+				<md-select ng-model="$ctrl.user.adress.country">
+					<md-option ng-repeat="country in $ctrl.countries" value="{{country}}">
+					{{country}}
+					</md-option>
+				</md-select>
+			</md-input-container>
+			
+			<div class="error">
+				{{$ctrl.registerError}}
+			</div>
+			<div layout="row" layout-align="center start" class="inline-button">
+				<md-button class="md-raised md-primary" type="submit" ng-disabled="registrationForm.$invalid">S'inscrire</md-button>
+			</div>
 	</form>
 	</div>
 </div>

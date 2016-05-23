@@ -133,9 +133,9 @@ var mailTaken = function(mail, callback) {
       if(commonValid.isACallback(callback))
         callback(null, results.length === 1);
       if(results.length === 1) {
-        writelog('Nickname ' + nickname + ' is already taken', TYPE);
+        writelog('Mail ' + mail + ' is already taken', TYPE);
       } else {
-        writelog('Nickname ' + nickname + ' is not taken', TYPE);
+        writelog('Mail ' + mail + ' is not taken', TYPE);
       }
     }
   })

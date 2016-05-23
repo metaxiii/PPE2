@@ -28,7 +28,7 @@ export default ['ConnectivityService', '$q', function(ConnectivityService, $q) {
                     }
                 })
         });
-    }
+    };
     
     return {
         bookARoom: bookARoom

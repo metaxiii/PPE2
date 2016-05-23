@@ -23,6 +23,8 @@ function(AuthService, $state, $timeout){
 						self.isConnected = true;
 						self.credentials = {};
 					}, 200);
+					
+					$state.go('index.booking');
 				}, function(err){
 					self.connexionError = err;
 				})

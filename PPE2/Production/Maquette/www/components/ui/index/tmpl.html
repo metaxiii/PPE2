@@ -2,46 +2,44 @@
 	<md-toolbar class="md-primary md-toolbar-tools" layout-align="space-around center" layout="row">
 		<a ui-sref="index.info"><img ng-src="{{$ctrl.m2l_logo}}" alt="logo"/></a>
 		<div flex layout="row" layout-align="center center">Maison des Ligues de Lorraine</div>
-		
-<div>	
-	<md-menu>
 
- <md-button ng-click="$mdOpenMenu($event)" class="md-icon-button" aria-label="Open sample menu">
-   <ng-md-icon icon="menu" style="fill: white"></ng-md-icon>
- </md-button>
- <md-menu-content layout-padding>
- 	<form id="login" layout="column" ng-if="!$ctrl.isConnected" name="loginForm">
-		<md-input-container>
-				<label>Email</label>
-				<input type="email"" ng-model="$ctrl.credentials.mail" name="mail" required>
-				<div ng-messages="loginForm.mail.$error" ng-show="loginForm.mail.$dirty">
-				<div ng-message="required">Champs requis</div>
-				</div>
-			</md-input-container>
-			<md-input-container>
-				<label>Mot de passe</label>
-				<input type="password" ng-model="$ctrl.credentials.password" name="password" required>
-				<div ng-messages="loginForm.password.$error" ng-show="loginForm.password.$dirty">
-				<div ng-message="required">Champs requis</div>
-				</div>
-			</md-input-container>
-			<div>
-				{{$ctrl.connexionError}}
-			</div>
-			<md-button class="md-raised md-primary" ng-click="$ctrl.connect()">Connection</md-button>
-			<a ui-sref="index.register">Pas encore inscrit?</a>
-			</md-menu-content> 
- 	</form>
+		<div>	
+			<md-menu>
+				<md-button ng-click="$mdOpenMenu($event)" class="md-icon-button" aria-label="Open sample menu">
+					<ng-md-icon icon="menu" style="fill: white"></ng-md-icon>
+				</md-button>
+				<md-menu-content layout-padding>
+					<form id="login" layout="column" ng-if="!$ctrl.isConnected" name="loginForm" ng-submit="$ctrl.connect()">
+						<md-input-container>
+							<label>Email</label>
+							<input type="email"" ng-model="$ctrl.credentials.mail" name="mail" required>
+							<div ng-messages="loginForm.mail.$error" ng-show="loginForm.mail.$dirty">
+								<div ng-message="required">Champs requis</div>
+							</div>
+						</md-input-container>
+						<md-input-container>
+							<label>Mot de passe</label>
+							<input type="password" ng-model="$ctrl.credentials.password" name="password" required>
+							<div ng-messages="loginForm.password.$error" ng-show="loginForm.password.$dirty">
+								<div ng-message="required">Champs requis</div>
+							</div>
+						</md-input-container>
+						<div>
+							{{$ctrl.connexionError}}
+						</div>
+						<md-button class="md-raised md-primary" type="submit" ng-disabled="loginForm.$invalid">Connection</md-button>
+						<a ui-sref="index.register">Pas encore inscrit?</a>
+					</form>
 
-	
-	<div id="userMenu" ng-if="$ctrl.isConnected" layout="column">
-		<md-button class="md-raised md-primary" ui-sref="index.booking"> Réservation</md-button>
-		<md-button class="md-raised md-primary" ng-click="$ctrl.disconnect()"> Déconnection</md-button>
-			
-	</div>
-		
-</div>		
-		
+
+					<div id="userMenu" ng-if="$ctrl.isConnected" layout="column">
+						<md-button class="md-raised md-primary" ui-sref="index.booking"> Réservation</md-button>
+						<md-button class="md-raised md-primary" ng-click="$ctrl.disconnect()"> Déconnection</md-button>
+					</div>
+				</md-menu-content> 
+			</md-menu>
+		</div>		
+
 	</md-toolbar>
 	<div ui-view></div>
 </div>

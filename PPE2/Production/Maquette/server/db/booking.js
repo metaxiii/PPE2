@@ -13,6 +13,7 @@ var Booking = mongoose.model('Booking', new mongoose.Schema({
 }));
 
 var getBookingByRoom = function(room, callback) {
+  var TYPE = 'DATABASE GETBOOKINGBYROOM'
   validator.checkRoom(room, function(err){
     if(err) {
       if(commonValid.isACallback(callback)){
@@ -20,11 +21,12 @@ var getBookingByRoom = function(room, callback) {
       }
     } else {
       var room = commonValid.prepareForDatabase(room);
-      Booking.find({room: room}, function(err){
+      Booking.find({room: room, bookingDate: { $gte: new Date().toDateString()}}, function(err){
         if(err){
             console.log(err);
             if(commonValid.isACallback(callback))
               callback('An error occured with the database');
+            writelog(err, TYPE);
           } else {
             var mess = commonValid.prepareRoomMessage(results);
             callback(null, mess);
@@ -35,6 +37,7 @@ var getBookingByRoom = function(room, callback) {
 };
 
 var bookARoom = function(book, callback){
+  var TYPE = 'DATABASE BOOKING';
     validator.checkBooking(book, function(err){
       if(err) {
       if(commonValid.isACallback(callback)){
@@ -52,6 +55,7 @@ var bookARoom = function(book, callback){
           console.log(err);
           if(commonValid.isACallback(callback))
             callback('Issue when saving new booking to database.');
+          writelog(err, TYPE);
         } else {
           console.log('New booking added to database');
           if(commonValid.isACallback(callback))

@@ -17,7 +17,6 @@ function(BookingService, AuthService, $state){
 	
 	const getBookingDateByRoom = function(room) {
 		//TODO
-		console.log(room);
 	};
 	
 	const setRoom = function(room) {
@@ -25,11 +24,16 @@ function(BookingService, AuthService, $state){
 	};
 	
 	const bookARoom = function() {
-		//TODO: callback and parse Date
+		self.result = '';
 		BookingService.bookARoom({
 			room: self.room,
 			bookingDate: self.bookingDate
 		})
+			.then(() => {
+				self.result = 'Salle réservée !';
+			}, (err) => {
+				self.result = 'Error: ' + err;
+			});
 	};
 	self.setRoom = setRoom;
 	self.bookARoom = bookARoom;

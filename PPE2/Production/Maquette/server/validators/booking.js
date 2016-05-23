@@ -67,7 +67,7 @@ var checkBooking = function(book, callback){
                     writelog(err, TYPE);
                 } else {
                     if(results === true){
-                        callback('This combination of room/date is already taken');
+                        callback('This combination of room/date is already taken', TYPE);
                     } else {
                         callback();
                     }
