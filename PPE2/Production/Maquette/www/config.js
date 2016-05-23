@@ -4,7 +4,7 @@ import ngMdIcons from 'angular-material-icons';
 import ngMaterial from 'angular-material';
 import ngMessage from 'angular-messages';
 
-import roomFilter from './filters/roomFilter';
+import roomFilter from './components/filters/roomFilter';
 
 import AuthService from './components/services/AuthService';
 import BookingService from './components/services/BookingService';
