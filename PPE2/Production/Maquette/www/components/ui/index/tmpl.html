@@ -27,7 +27,7 @@
 						<div>
 							{{$ctrl.connexionError}}
 						</div>
-						<md-button class="md-raised md-primary" type="submit" ng-disabled="loginForm.$invalid">Connection</md-button>
+						<md-button class="md-raised md-primary" md-prevent-menu-close type="submit" ng-disabled="loginForm.$invalid">Connection</md-button>
 						<a ui-sref="index.register">Pas encore inscrit?</a>
 					</form>
 

@@ -1,14 +1,13 @@
 import sha256 from 'crypto-js/sha256';
 import m2l_logo from './../../../img/m2l_logo.png' ;
 
-export default ['AuthService', '$state', '$timeout', 
-function(AuthService, $state, $timeout){
+export default ['AuthService', '$state', '$timeout', '$mdMenu',
+function(AuthService, $state, $timeout, $mdMenu){
 	let isConnected = AuthService.getAuth();
 
 	const self = this;
 
 	const connect = () => {
-		// TODO: close only if connected
 		self.connexionError = '';
 		if(!self.isConnected && self.credentials && self.credentials.mail && self.credentials.password){
 			let encryptedPassword = '' + sha256(self.credentials.password);
@@ -18,11 +17,12 @@ function(AuthService, $state, $timeout){
 			};
 			AuthService.connect(userCred)
 				.then(function(){
+					$mdMenu.hide()
 					// Time for the pop up to disapear
 					$timeout(() => {
 						self.isConnected = true;
 						self.credentials = {};
-					}, 200);
+					}, 300);
 					
 					$state.go('index.booking');
 				}, function(err){
