@@ -12,7 +12,7 @@ Le projet nécessite le téléchargement et l'installation de [Node](https://nod
 ## Lancer le projet
 Pour lancer le projet pour le développement : 
 
-Si `webpack-dev-server` ne se trouve pas dans votre variable path, executer `npm install -g webpack-dev-server`
+Si `webpack-dev-server` ne se trouve pas dans votre variable d'environnement PATH, executer `npm install -g webpack-dev-server`
 
 1. En commande, se rendre dans le dossier `PPE2\Production\Maquette` du projet
 2. Executer `Node server`, ceci lance le serveur
@@ -23,7 +23,7 @@ Le projet sera servi sur le port 8080.
 ## Version production
 Pour créer la version production minifiée du front end :
 
-Si `webpack` ne se trouve pas dans votre variable path, executer `npm install -g webpack`
+Si `webpack` ne se trouve pas dans votre variable d'environnement PATH, executer `npm install -g webpack`
 
 1. En commande, se rendre dans le dossier `PPE2\Production\Maquette` du projet
 2. Executer `webpack --optimize--minimize --config webpack.prod.config.js`
