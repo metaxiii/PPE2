@@ -3,7 +3,7 @@ var mongoose = require('mongoose');
 var commonValid = require('./../validators/common');
 var validator = require('./../validators/user');
 
-var writelog = require('./../writelog').writelog;
+var writelog = require('./../common/writelog').writelog;
 
 
 var User = mongoose.model('User', new mongoose.Schema({
@@ -133,9 +133,15 @@ var mailTaken = function(mail, callback) {
       if(commonValid.isACallback(callback))
         callback(null, results.length === 1);
       if(results.length === 1) {
+<<<<<<< HEAD
         writelog('Nickname ' + mail + ' is already taken', TYPE);
       } else {
         writelog('Nickname ' + mail + ' is not taken', TYPE);
+=======
+        writelog('Mail ' + mail + ' is already taken', TYPE);
+      } else {
+        writelog('Mail ' + mail + ' is not taken', TYPE);
+>>>>>>> 192790edaa05d4da9c7259376dd7f6a684035daa
       }
     }
   })
