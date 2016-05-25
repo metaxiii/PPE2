@@ -1,6 +1,6 @@
 var commonValid = require('./common');
 var Booking = require('./../db/booking');
-var writelog = require('./../writelog').writelog;
+var writelog = require('./../common/writelog').writelog;
 
 var checkARoom = function(room) {
     if(!room) {
@@ -54,6 +54,15 @@ var checkBooking = function(book, callback){
         }
         
         writelog(err, TYPE);
+    } else if (!book.user){
+        var err = 'No user field in booking object';
+        
+        console.log(err);
+        if(commonValid.isACallback(callback)){
+            callback(err);
+        }
+        
+        writelog(err, TYPE);
     } else {
         var res = checkARoom(book.room);
         
@@ -67,7 +76,7 @@ var checkBooking = function(book, callback){
                     writelog(err, TYPE);
                 } else {
                     if(results === true){
-                        callback('This combination of room/date is already taken');
+                        callback('This combination of room/date is already taken', TYPE);
                     } else {
                         callback();
                     }

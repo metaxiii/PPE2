@@ -1,24 +1,24 @@
 
 <div>
 	<div layout="row" layout-align="space-between center" layout-padding>
-		<figure>
-			<img ng-src="{{$ctrl.amphitheatre}}" alt="Amphitheatre" width="500px" height="375.45" />
+		<figure flex="30">
+			<img ng-src="{{$ctrl.amphitheatre}}" alt="Amphitheatre" width="100%" />
 			<figcaption layout="row" layout-align="center center">Amphithéâtre</figcaption>
 			
 			<div layout="row" layout-align="center center">
 				<md-button ng-click="$ctrl.setRoom('amphitheater')">Réserver la salle</md-button>
 			</div>
 		</figure>
-		<figure>
-			<img ng-src="{{$ctrl.conviv}}" alt="conviv" width="500px" />
+		<figure flex="30">
+			<img ng-src="{{$ctrl.conviv}}" alt="conviv" width="100%" />
 			<figcaption layout="row" layout-align="center center">Salle conviviale</figcaption>
 			
 			<div layout="row" layout-align="center center">
 				<md-button ng-click="$ctrl.setRoom('friendly')">Réserver la salle</md-button>
 			</div>
 		</figure>
-		<figure>
-			<img ng-src="{{$ctrl.reunion}}" alt="reunion" width="500px" />
+		<figure flex="30">
+			<img ng-src="{{$ctrl.reunion}}" alt="reunion" width="100%" />
 			<figcaption layout="row" layout-align="center center">Salle de réunion</figcaption>
 			
 			<div layout="row" layout-align="center center">
@@ -26,7 +26,7 @@
 			</div>
 		</figure>
 	</div>
-	<div ng-if="$ctrl.room">
+	<form name="bookingForm" ng-if="$ctrl.room" ng-submit="$ctrl.bookARoom()">
 		<div layout="row" layout-align="center start" >
 			<h3>{{$ctrl.room | roomFilter}}</h3>
 		</div>
@@ -42,8 +42,9 @@
 			</md-input-container>
 		</div>
 		<div layout="row" layout-align="center start">
-			<md-datepicker ng-model="$ctrl.bookingDate"></md-datepicker>
-			<md-button class="md-raised md-primary" ng-click="$ctrl.bookARoom()">Réserver</md-button>
+			<md-datepicker ng-model="$ctrl.bookingDate" required></md-datepicker>
+			<md-button class="md-raised md-primary" type="submit" ng-disabled="bookingForm.$invalid">Réserver</md-button>
 		</div>
-	</div>
+		<div layout="row" layout-align="center start"><span>{{$ctrl.result}}</span></div>
+	</form>
 </div>
